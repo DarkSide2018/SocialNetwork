@@ -25,6 +25,7 @@ ext {
 }
 
 dependencies {
+	implementation 'com.h2database:h2:1.4.200'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
