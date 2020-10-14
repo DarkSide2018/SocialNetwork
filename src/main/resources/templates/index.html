@@ -20,15 +20,21 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Age</th>
+                        <th>Interest</th>
+                        <th>Surname</th>
+                        <th>Gender</th>
+                        <th>City</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="user : ${clients}">
                         <td th:text="${user.name}"></td>
                         <td th:text="${user.age}"></td>
+                        <td th:text="${user.interest}"></td>
+                        <td th:text="${user.surName}"></td>
+                        <td th:text="${user.gender}"></td>
+                        <td th:text="${user.city}"></td>
                     </tr>
                     </tbody>
                 </table>
