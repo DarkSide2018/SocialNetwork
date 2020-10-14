@@ -1,4 +1,4 @@
-package com.highload.socialNetwork;
+package com.highload.socialNetwork.service;
 
 import org.springframework.stereotype.Service;
 
