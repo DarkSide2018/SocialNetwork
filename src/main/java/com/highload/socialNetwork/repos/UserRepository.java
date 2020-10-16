@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class UserRepository {
@@ -45,5 +47,33 @@ public class UserRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public void deleteById(Integer id) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("DELETE FROM social.user u WHERE u.id = ? ");) {
+            preparedStatement.setInt(1, id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public List<User> getAll() {
+        List<User> users = new ArrayList<>();
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.user");) {
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                User client = new User(
+                        resultSet.getLong("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("password")
+                );
+                users.add(client);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return users;
     }
 }

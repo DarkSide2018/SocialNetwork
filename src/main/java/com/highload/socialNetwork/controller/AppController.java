@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -29,11 +30,27 @@ public class AppController {
         this.userValidator = userValidator;
     }
 
-    @GetMapping({"/", "/signup"})
+    @GetMapping({"/"})
     public String signup(Model model) {
         List<Client> all = service.getAll();
+        List<User> userServiceAll = userService.getAll();
         model.addAttribute("clients", all);
+        model.addAttribute("users", userServiceAll);
         return "index";
+    }
+
+    @GetMapping("/signup")
+    public String showSignUpForm(User user) {
+        return "registration";
+    }
+    @GetMapping("/login")
+    public String login(User user) {
+        return "login";
+    }
+    @PostMapping("/login")
+    public String postlogin(User user) {
+        System.out.println("loginPage");
+        return "login";
     }
 
     @PostMapping("/addUser")
@@ -46,12 +63,11 @@ public class AppController {
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
         return "redirect:/";
     }
-//    @GetMapping("/delete/{id}")
-//    public String deleteUser(@PathVariable("id") long id, Model model) {
-//        User user = userService.(id)
-//                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-//        userRepository.delete(user);
-//        return "index";
-//    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") Integer id, Model model) {
+        userService.deleteById(id);
+        return "index";
+    }
 
 }

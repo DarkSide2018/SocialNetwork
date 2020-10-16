@@ -26,4 +26,10 @@
             <column name="password" value="123456"/>
         </insert>
     </changeSet>
+    <changeSet author="admin" id="16-10-17-40">
+        <insert tableName="user">
+            <column name="name" value="admin"/>
+            <column name="password" value="$2a$10$PsMwlwEMP0UkypkwGkQsPOOq6vN0t8hMqaNK412B2ZK1BZ3AmfSHW"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

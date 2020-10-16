@@ -2,9 +2,10 @@ package com.highload.socialNetwork.service;
 
 import com.highload.socialNetwork.model.User;
 import com.highload.socialNetwork.repos.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -23,5 +24,10 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         repository.save(user);
     }
-
+    public List<User> getAll(){
+        return repository.getAll();
+    }
+    public void deleteById(Integer id){
+        repository.deleteById(id);
+    }
 }
