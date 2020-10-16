@@ -6,7 +6,6 @@ import com.highload.socialNetwork.service.ClientService;
 import com.highload.socialNetwork.service.SecurityService;
 import com.highload.socialNetwork.service.UserService;
 import com.highload.socialNetwork.service.UserValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,26 +29,29 @@ public class AppController {
         this.userValidator = userValidator;
     }
 
-    @GetMapping({"/","/signup"})
-    public String signup(Model model ) {
+    @GetMapping({"/", "/signup"})
+    public String signup(Model model) {
         List<Client> all = service.getAll();
-        model.addAttribute("clients",all);
+        model.addAttribute("clients", all);
         return "index";
     }
-    @PostMapping("/registration")
+
+    @PostMapping("/addUser")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
-
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-
         userService.save(userForm);
-
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
-
-        return "redirect:/welcome";
+        return "redirect:/";
     }
-
+//    @GetMapping("/delete/{id}")
+//    public String deleteUser(@PathVariable("id") long id, Model model) {
+//        User user = userService.(id)
+//                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+//        userRepository.delete(user);
+//        return "index";
+//    }
 
 }
