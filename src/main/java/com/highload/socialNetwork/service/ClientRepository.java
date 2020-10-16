@@ -9,8 +9,11 @@ import java.util.List;
 
 @Repository
 public class ClientRepository {
-    @Autowired
-    private DbConnectionProvider provider;
+    private final DbConnectionProvider provider;
+
+    public ClientRepository(DbConnectionProvider provider) {
+        this.provider = provider;
+    }
 
     public List<Client> getAll() {
         List<Client> clients = new ArrayList<>();
