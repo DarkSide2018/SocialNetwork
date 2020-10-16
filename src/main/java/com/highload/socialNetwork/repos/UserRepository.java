@@ -1,16 +1,12 @@
 package com.highload.socialNetwork.repos;
 
-import com.highload.socialNetwork.model.Client;
 import com.highload.socialNetwork.model.User;
 import com.highload.socialNetwork.service.DbConnectionProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public class UserRepository {
@@ -38,5 +34,16 @@ public class UserRepository {
 
         }
         return null;
+    }
+
+    public void save(User user) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO social.user VALUES (?,?)");) {
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }
