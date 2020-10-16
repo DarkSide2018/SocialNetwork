@@ -1,6 +1,7 @@
-package com.highload.socialNetwork.service;
+package com.highload.socialNetwork.model;
 
 
+import java.util.Objects;
 
 public class Client {
     private Long   id;
@@ -84,5 +85,24 @@ public class Client {
         this.city = city;
 
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return id.equals(client.id) &&
+                name.equals(client.name) &&
+                surName.equals(client.surName) &&
+                age.equals(client.age) &&
+                gender.equals(client.gender) &&
+                interest.equals(client.interest) &&
+                city.equals(client.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surName, age, gender, interest, city);
     }
 }

@@ -1,5 +1,7 @@
 package com.highload.socialNetwork.service;
 
+import com.highload.socialNetwork.model.Client;
+import com.highload.socialNetwork.repos.ClientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

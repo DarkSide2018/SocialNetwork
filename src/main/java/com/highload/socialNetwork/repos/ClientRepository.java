@@ -1,6 +1,7 @@
-package com.highload.socialNetwork.service;
+package com.highload.socialNetwork.repos;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.highload.socialNetwork.model.Client;
+import com.highload.socialNetwork.service.DbConnectionProvider;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
