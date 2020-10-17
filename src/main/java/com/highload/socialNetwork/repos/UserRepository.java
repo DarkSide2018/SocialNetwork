@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class UserRepository {
     }
 
     public void save(User user) {
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO social.user VALUES (?,?)");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO social.user (`name`,password) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.execute();
