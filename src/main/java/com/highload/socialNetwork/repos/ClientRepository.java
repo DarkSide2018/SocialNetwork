@@ -18,7 +18,7 @@ public class ClientRepository {
 
     public List<Client> getAll() {
         List<Client> clients = new ArrayList<>();
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM client");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.client");) {
 
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
