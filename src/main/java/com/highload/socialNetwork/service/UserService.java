@@ -24,6 +24,15 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         repository.save(user);
     }
+    public void update(User user){
+        User byId = repository.getById(user.getId());
+        byId.setName(user.getName());
+        byId.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        repository.updateById(byId);
+    }
+    public User getByUserId(Long id){
+        return repository.getById(id);
+    }
     public List<User> getAll(){
         return repository.getAll();
     }

@@ -38,6 +38,36 @@ public class UserRepository {
         }
         return null;
     }
+    public void updateById(User user){
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("UPDATE social.user u  SET u.name=?, u.password=?  WHERE u.id=?", Statement.RETURN_GENERATED_KEYS);) {
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setLong(3, user.getId());
+            preparedStatement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public User getById(Long id){
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.user u where u.id  = ?");) {
+            preparedStatement.setLong(1, id);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                return new User(
+                        resultSet.getLong("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("password")
+                );
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+        return null;
+    }
 
     public void save(User user) {
         try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO social.user (`name`,password) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);) {
@@ -53,6 +83,7 @@ public class UserRepository {
     public void deleteById(Integer id) {
         try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("DELETE FROM social.user u WHERE u.id = ? ");) {
             preparedStatement.setInt(1, id);
+            preparedStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -64,10 +95,12 @@ public class UserRepository {
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {
+                String password = resultSet.getString("password");
+
                 User client = new User(
                         resultSet.getLong("id"),
                         resultSet.getString("name"),
-                        resultSet.getString("password")
+                        password
                 );
                 users.add(client);
             }

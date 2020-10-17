@@ -7,7 +7,6 @@ import com.highload.socialNetwork.service.SecurityService;
 import com.highload.socialNetwork.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,32 +34,43 @@ public class AppController {
         model.addAttribute("users", userServiceAll);
         return "index";
     }
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Long id,Model model){
+        model.addAttribute("user", userService.getByUserId(id));
+        return "registration";
+    }
 
     @GetMapping("/signup")
     public String showSignUpForm(User user) {
         return "registration";
     }
     @GetMapping("/login")
-    public String login(User user) {
+    public String login() {
         return "login";
     }
+
     @PostMapping("/login")
-    public String postlogin(User user) {
-        System.out.println("loginPage");
+    public String postlogin() {
         return "login";
     }
 
     @PostMapping("/adduser")
-    public String registration(@ModelAttribute("user") User userForm, BindingResult bindingResult) {
+    public String registration(@ModelAttribute("user") User userForm) {
         userService.save(userForm);
+        securityService.autoLogin(userForm.getName(), userForm.getPassword());
+        return "redirect:/";
+    }
+    @PostMapping("/update")
+    public String updateUser(@ModelAttribute("user") User userForm) {
+        userService.update(userForm);
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
         return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") Integer id, Model model) {
+    public String deleteUser(@PathVariable("id") Integer id) {
         userService.deleteById(id);
-        return "index";
+        return "redirect:/";
     }
 
 }
