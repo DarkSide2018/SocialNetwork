@@ -1,6 +1,7 @@
 package com.highload.socialNetwork.repos;
 
 import com.highload.socialNetwork.model.Client;
+import com.highload.socialNetwork.model.User;
 import com.highload.socialNetwork.service.DbConnectionProvider;
 import org.springframework.stereotype.Repository;
 
@@ -40,6 +41,21 @@ public class ClientRepository {
             throwables.printStackTrace();
         }
         return clients;
+    }
+    public synchronized void save(Client client) {
+
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO social.client (`name`,surname,age,gender,interest,city) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
+           int i = 1;
+            preparedStatement.setString(i++, client.getName());
+            preparedStatement.setString(i++, client.getSurName());
+            preparedStatement.setInt(i++, client.getAge());
+            preparedStatement.setString(i++, client.getGender());
+            preparedStatement.setString(i++, client.getInterest());
+            preparedStatement.setString(i++, client.getCity());
+            preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
 }

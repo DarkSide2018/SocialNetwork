@@ -19,6 +19,8 @@ public class AppController {
     private final ClientService service;
     private final UserService userService;
     private final SecurityService securityService;
+    private  int currentPage = 1;
+    private  int size = 10;
 
     public AppController(ClientService service, UserService userService, SecurityService securityService) {
         this.service = service;
@@ -26,40 +28,36 @@ public class AppController {
         this.securityService = securityService;
     }
     @ModelAttribute("page")
-    public String messages() {
-        return "5";
+    public Integer page() {
+        return currentPage;
+    }
+    @ModelAttribute("size")
+    public Integer size() {
+        return size;
     }
     @GetMapping({"/"})
     public String signup(Model model) {
-        List<Client> all = service.getAll(1, 10);
+        List<Client> all = service.getAll(currentPage, size);
         List<User> userServiceAll = userService.getAll();
         model.addAttribute("clients", all);
-        model.addAttribute("size", 10);
         model.addAttribute("users", userServiceAll);
         return "index";
     }
 
-    @GetMapping({"/pageLeft/{page}/{size}"})
-    public String pageLeft(Model model,
-                           @PathVariable("page") String page,
-                            @PathVariable("size")String size) {
-        int pageMinus = Integer.parseInt(page) - 1;
-        List<Client> all = service.getAll(pageMinus, Integer.parseInt(size));
+    @GetMapping({"/pageLeft"})
+    public String pageLeft(Model model) {
+        currentPage = currentPage-1;
+        List<Client> all = service.getAll(currentPage,size);
         model.addAttribute("clients", all);
-        model.addAttribute("page", pageMinus);
         model.addAttribute("size", size);
         return "index";
     }
 
-    @GetMapping({"/pageRight/{page}/{size}"})
-    public String pageRight(Model model,
-            @PathVariable("page") String page,
-                            @PathVariable("size") String size) {
-        int pagePlus = Integer.parseInt(page) + 1;
-        List<Client> all = service.getAll(pagePlus, Integer.parseInt(size));
+    @GetMapping({"/pageRight"})
+    public String pageRight(Model model) {
+        currentPage = currentPage + 1;
+        List<Client> all = service.getAll(currentPage, size);
         model.addAttribute("clients", all);
-        model.addAttribute("page", pagePlus);
-        model.addAttribute("size", size);
         return "index";
     }
 

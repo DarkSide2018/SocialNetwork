@@ -17,7 +17,7 @@
     <div th:with="size=${size}">
     <div class="row">
         <div class="col-md-1">
-            <a th:href="@{/pageLeft/{page}/{size}(page=${page},size=${size})}">left</a>
+            <a th:href="@{/pageLeft}">left</a>
         </div>
 
         <div class="col-md-7">
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="col-md-1">
-            <a th:href="@{/pageRight/${page}/${size}}">right</a>
+            <a th:href="@{/pageRight}">right</a>
         </div>
     </div>
 </div>

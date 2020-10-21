@@ -15,10 +15,14 @@ public class DbConnectionProvider {
     private String user;
     @Value("${spring.datasource.password}")
     private String password;
+    private Connection connection = null;
 
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection(jdbcUrl, user, password);
+            if(connection == null){
+               connection = DriverManager.getConnection(jdbcUrl, user, password);
+           }
+           return connection;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return null;
