@@ -4,7 +4,7 @@ package com.highload.socialNetwork.model;
 import java.util.Objects;
 
 public class Client {
-    private Long   id;
+    private Long id;
     private String name;
     private String surName;
     private Integer age;
@@ -66,6 +66,11 @@ public class Client {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public Client(
+    ) {
+
     }
 
     public Client(long id,

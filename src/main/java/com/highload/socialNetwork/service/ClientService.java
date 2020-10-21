@@ -1,21 +1,29 @@
 package com.highload.socialNetwork.service;
 
+import com.github.javafaker.Faker;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
 import com.highload.socialNetwork.model.Client;
 import com.highload.socialNetwork.repos.ClientRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 @Service
+@DependsOn("clientRepository")
 public class ClientService {
 
     @Value("${fillData}")
     private String fillData="";
     private final ClientRepository clientRepository;
-
+    Random random = new Random();
+    Faker faker = new Faker();
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
@@ -24,41 +32,37 @@ public class ClientService {
         return clientRepository.getAll(page, size);
     }
 
-    public void saveClient(Client client) {
-        clientRepository.save(client);
+    public void saveClients(List<Client> clients) {
+        clientRepository.batchSave(clients);
     }
     @PostConstruct
     public void initData(){
 
         if(fillData.equals("true")){
-
-            Random rand = new Random();
-
-                List<Client> all = getAll(1, 100);
-
-                all.forEach(el->{
-                    for(int i=0;i<10000;i++){
-
-                        String name = el.getName() + rand.nextInt(5000);
-                        if(name.length()>15){
-                            String subStringName = name.substring(0,6);
-                            el.setName(subStringName);
-                        }else{
-                            el.setName(name);
+            if(clientRepository.checkCount()>=1000000){
+                System.out.println("database filled");
+                return;
+            }
+            System.out.println("start fill data");
+            List<Client>clientList = new ArrayList<>(5000);
+                    for(int i=0;i<1000000;i++){
+                        Client client = new Client();
+                        System.out.println("iteration = " + i);
+                        String name = faker.name().firstName();
+                        System.out.println("fakeNAme="+ name);
+                        client.setName(name);
+                        client.setSurName(faker.name().lastName());
+                        client.setInterest(faker.chuckNorris().fact());
+                        client.setAge(random.nextInt(50));
+                        client.setCity(faker.address().city());
+                        client.setGender(faker.demographic().sex());
+                        clientList.add(client);
+                        if(clientList.size()>=5000){
+                            saveClients(clientList);
+                            clientList = new ArrayList<>(5000);
                         }
-
-                        String surName = el.getSurName() + rand.nextInt(5000);
-                        if(surName.length()>15){
-                            String substringSurname = surName.substring(0, 6);
-                            el.setSurName(substringSurname);
-                        }else{
-                            el.setSurName(surName);
-                        }
-                        el.setInterest("SPORT");
-                        saveClient(el);
                     }
 
-                });
         }
         System.out.println("end fillData");
     }

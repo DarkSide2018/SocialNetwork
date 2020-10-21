@@ -42,20 +42,34 @@ public class ClientRepository {
         }
         return clients;
     }
-    public synchronized void save(Client client) {
-
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO social.client (`name`,surname,age,gender,interest,city) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
-           int i = 1;
-            preparedStatement.setString(i++, client.getName());
-            preparedStatement.setString(i++, client.getSurName());
-            preparedStatement.setInt(i++, client.getAge());
-            preparedStatement.setString(i++, client.getGender());
-            preparedStatement.setString(i++, client.getInterest());
-            preparedStatement.setString(i++, client.getCity());
+    public Integer checkCount(){
+        Connection connection = provider.getConnection();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM social.client;", Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            resultSet.next();
+            return resultSet.getInt(1);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+    }
+    public void batchSave(List<Client> clients) {
+        Connection connection = provider.getConnection();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO social.client (`name`,surname,age,gender,interest,city) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
+            for (Client client: clients) {
+                int i = 1;
+                preparedStatement.setString(i++, client.getName());
+                preparedStatement.setString(i++, client.getSurName());
+                preparedStatement.setInt(i++, client.getAge());
+                preparedStatement.setString(i++, client.getGender());
+                preparedStatement.setString(i++, client.getInterest());
+                preparedStatement.setString(i++, client.getCity());
+                preparedStatement.addBatch();
+            }
+            preparedStatement.executeBatch();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
-
 }
