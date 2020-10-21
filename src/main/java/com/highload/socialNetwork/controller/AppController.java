@@ -25,17 +25,46 @@ public class AppController {
         this.userService = userService;
         this.securityService = securityService;
     }
-
+    @ModelAttribute("page")
+    public String messages() {
+        return "5";
+    }
     @GetMapping({"/"})
     public String signup(Model model) {
-        List<Client> all = service.getAll();
+        List<Client> all = service.getAll(1, 10);
         List<User> userServiceAll = userService.getAll();
         model.addAttribute("clients", all);
+        model.addAttribute("size", 10);
         model.addAttribute("users", userServiceAll);
         return "index";
     }
+
+    @GetMapping({"/pageLeft/{page}/{size}"})
+    public String pageLeft(Model model,
+                           @PathVariable("page") String page,
+                            @PathVariable("size")String size) {
+        int pageMinus = Integer.parseInt(page) - 1;
+        List<Client> all = service.getAll(pageMinus, Integer.parseInt(size));
+        model.addAttribute("clients", all);
+        model.addAttribute("page", pageMinus);
+        model.addAttribute("size", size);
+        return "index";
+    }
+
+    @GetMapping({"/pageRight/{page}/{size}"})
+    public String pageRight(Model model,
+            @PathVariable("page") String page,
+                            @PathVariable("size") String size) {
+        int pagePlus = Integer.parseInt(page) + 1;
+        List<Client> all = service.getAll(pagePlus, Integer.parseInt(size));
+        model.addAttribute("clients", all);
+        model.addAttribute("page", pagePlus);
+        model.addAttribute("size", size);
+        return "index";
+    }
+
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id,Model model){
+    public String edit(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getByUserId(id));
         return "registration";
     }
@@ -44,6 +73,7 @@ public class AppController {
     public String showSignUpForm(User user) {
         return "registration";
     }
+
     @GetMapping("/login")
     public String login() {
         return "login";
@@ -60,6 +90,7 @@ public class AppController {
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
         return "redirect:/";
     }
+
     @PostMapping("/update")
     public String updateUser(@ModelAttribute("user") User userForm) {
         userService.update(userForm);

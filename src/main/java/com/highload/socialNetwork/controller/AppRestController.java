@@ -1,11 +1,9 @@
 package com.highload.socialNetwork.controller;
 
+import com.highload.socialNetwork.model.Client;
 import com.highload.socialNetwork.model.User;
 import com.highload.socialNetwork.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AppRestController {
@@ -21,8 +19,8 @@ public class AppRestController {
 
         return   userService.getUserByName(name);
     }
-    @PostMapping
-    public void saveUser(User user){
+    @PostMapping("/client/save")
+    public void saveUser(@ModelAttribute("client") Client client){
 
     }
 }

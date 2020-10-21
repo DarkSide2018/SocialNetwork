@@ -16,10 +16,11 @@ public class ClientRepository {
         this.provider = provider;
     }
 
-    public List<Client> getAll() {
+    public List<Client> getAll(int page, int size) {
         List<Client> clients = new ArrayList<>();
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.client");) {
-
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.client LIMIT ? OFFSET ?");) {
+            preparedStatement.setInt(1,size);
+            preparedStatement.setInt(2,page*size);
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {

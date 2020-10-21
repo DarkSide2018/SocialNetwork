@@ -14,8 +14,8 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public List<Client> getAll(){
-        return clientRepository.getAll();
+    public List<Client> getAll(int page,int size){
+        return clientRepository.getAll(page, size);
     }
 
     public void saveClient(Client client){
