@@ -1,0 +1,8 @@
+    <insert schemaName="social" tableName="client">
+            <column name="name" value="%NAME%"/>
+            <column name="surname" value="%SURNAME%"/>
+            <column name="age" value="%AGE%"/>
+            <column name="gender" value="%GENDER%"/>
+            <column name="interest" value="books"/>
+            <column name="city" value="Los Angeles"/>
+        </insert>
