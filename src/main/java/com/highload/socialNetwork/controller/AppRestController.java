@@ -4,6 +4,7 @@ import com.highload.socialNetwork.model.User;
 import com.highload.socialNetwork.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,6 +18,11 @@ public class AppRestController {
 
     @GetMapping({"/user/{name}"})
     public User getByName(@PathVariable(value = "name") String name) {
+
         return   userService.getUserByName(name);
+    }
+    @PostMapping
+    public void saveUser(User user){
+
     }
 }

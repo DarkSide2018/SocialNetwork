@@ -1,7 +1,5 @@
 package com.highload.socialNetwork.service;
 
-import org.apache.commons.io.FileUtils;
-
 import java.io.*;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
