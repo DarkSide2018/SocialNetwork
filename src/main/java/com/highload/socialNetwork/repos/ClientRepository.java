@@ -20,8 +20,8 @@ public class ClientRepository {
     public List<Client> getAll(int page, int size) {
         List<Client> clients = new ArrayList<>();
         try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.client LIMIT ? OFFSET ?");) {
-            preparedStatement.setInt(1,size);
-            preparedStatement.setInt(2,page*size);
+            preparedStatement.setInt(1, size);
+            preparedStatement.setInt(2, page * size);
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {
@@ -42,7 +42,8 @@ public class ClientRepository {
         }
         return clients;
     }
-    public Integer checkCount(){
+
+    public Integer checkCount() {
         Connection connection = provider.getConnection();
         try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM social.client;", Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.execute();
@@ -54,10 +55,11 @@ public class ClientRepository {
             return null;
         }
     }
+
     public void batchSave(List<Client> clients) {
         Connection connection = provider.getConnection();
         try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO social.client (`name`,surname,age,gender,interest,city) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
-            for (Client client: clients) {
+            for (Client client : clients) {
                 int i = 1;
                 preparedStatement.setString(i++, client.getName());
                 preparedStatement.setString(i++, client.getSurName());
@@ -71,5 +73,32 @@ public class ClientRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public List<Client> findByPrefixFirstNameAndSecondName(String first, String second) {
+        List<Client> clients = new ArrayList<>();
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.client sc WHERE sc.name LIKE ? and sc.surname LIKE ? order by sc.id LIMIT 50 ");) {
+            int i = 1;
+            preparedStatement.setString(i++, "%"+first+"%");
+            preparedStatement.setString(i++, "%"+second+"%");
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                Client client = new Client(
+                        resultSet.getLong("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("surName"),
+                        resultSet.getInt("age"),
+                        resultSet.getString("gender"),
+                        resultSet.getString("interest"),
+                        resultSet.getString("city")
+                );
+                clients.add(client);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return clients;
     }
 }

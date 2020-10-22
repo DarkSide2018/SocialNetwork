@@ -13,14 +13,23 @@
 </head>
 <body>
 <div th:switch="${clients}" class="container my-5">
-    <div th:with="page=${page}">
-    <div th:with="size=${size}">
     <div class="row">
         <div class="col-md-1">
             <a th:href="@{/pageLeft}">left</a>
         </div>
 
         <div class="col-md-7">
+            <div class="row">
+                <form method="post" th:action="@{/findByPrefix}" th:object="${clientForm}">
+
+                    <input th:label="name" id="name" class="form-control" type="text" th:field="*{name}"/>
+                    <label for="name">Name</label>
+                    <input th:label="surname" id="surname" class="form-control" type="text" th:field="*{surName}"/>
+                    <label for="surname">Surname</label>
+                    <input type="submit" value="search client">
+                </form>
+            </div>
+
             <h2 th:case="null">No clients yet!</h2>
             <div th:case="*">
                 <h2 class="my-5">Clients</h2>
@@ -32,6 +41,7 @@
                     size =
                     <span th:utext="${size}"></span>
                 </p>
+
                 <table class="table table-striped table-responsive-md">
                     <thead>
                     <tr>
