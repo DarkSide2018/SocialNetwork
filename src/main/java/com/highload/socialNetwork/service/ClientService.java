@@ -66,6 +66,8 @@ public class ClientService {
             if (clientList.size() >= 5000) {
                 saveClients(clientList);
                 clientList.clear();
+            }else if(i>=startDataCount-1){
+                saveClients(clientList);
             }
         }
         System.out.println("end fillData");
