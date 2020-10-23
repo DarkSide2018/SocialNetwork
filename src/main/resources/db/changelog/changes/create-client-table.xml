@@ -13,7 +13,7 @@
     </changeSet>
 
     <changeSet author="admin" id="1">
-        <createTable schemaName="social" tableName="client">
+        <createTable  tableName="client">
             <column autoIncrement="true" name="id" type="INT">
                 <constraints primaryKey="true"/>
             </column>
@@ -28,7 +28,7 @@
         </createTable>
     </changeSet>
     <changeSet author="admin" id="2">
-        <insert schemaName="social" tableName="client">
+        <insert tableName="client">
             <column name="name" value="Peter"/>
             <column name="surname" value="Jackson"/>
             <column name="age" value="25"/>
@@ -36,7 +36,7 @@
             <column name="interest" value="Board Games"/>
             <column name="city" value="New York"/>
         </insert>
-        <insert schemaName="social" tableName="client">
+        <insert tableName="client">
             <column name="name" value="Christina"/>
             <column name="surname" value="Aguilera"/>
             <column name="age" value="20"/>

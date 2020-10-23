@@ -19,7 +19,7 @@ public class ClientRepository {
 
     public List<Client> getAll(int page, int size) {
         List<Client> clients = new ArrayList<>();
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.client LIMIT ? OFFSET ?");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM client LIMIT ? OFFSET ?");) {
             preparedStatement.setInt(1, size);
             preparedStatement.setInt(2, page * size);
             preparedStatement.execute();
@@ -45,12 +45,12 @@ public class ClientRepository {
 
     public Integer checkCount() {
         Connection connection = provider.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM social.client;", Statement.RETURN_GENERATED_KEYS);) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM client;", Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
             resultSet.next();
             return resultSet.getInt(1);
-        } catch (SQLException throwables) {
+        } catch (Throwable throwables) {
             throwables.printStackTrace();
             return null;
         }
@@ -58,7 +58,7 @@ public class ClientRepository {
 
     public void batchSave(List<Client> clients) {
         Connection connection = provider.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO social.client (`name`,surname,age,gender,interest,city) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO client (`name`,surname,age,gender,interest,city) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
             for (Client client : clients) {
                 int i = 1;
                 preparedStatement.setString(i++, client.getName());
@@ -77,7 +77,7 @@ public class ClientRepository {
 
     public List<Client> findByPrefixFirstNameAndSecondName(String first, String second) {
         List<Client> clients = new ArrayList<>();
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.client sc WHERE sc.name LIKE ? and sc.surname LIKE ? order by sc.id LIMIT 50 ");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM client sc WHERE sc.name LIKE ? and sc.surname LIKE ? order by sc.id LIMIT 50 ");) {
             int i = 1;
             preparedStatement.setString(i++, "%"+first+"%");
             preparedStatement.setString(i++, "%"+second+"%");

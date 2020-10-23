@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <changeSet author="admin" id="2020-10-21T11:58:13.808152+03:00">
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Ипполит"/>
             <column name="surname" value="Зимин"/>
             <column name="age" value="47"/>
@@ -15,7 +15,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Эмилия"/>
             <column name="surname" value="Двойнева"/>
             <column name="age" value="1"/>
@@ -24,7 +24,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Сократ"/>
             <column name="surname" value="Махнёв"/>
             <column name="age" value="30"/>
@@ -33,7 +33,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Регина"/>
             <column name="surname" value="Феднова"/>
             <column name="age" value="22"/>
@@ -42,7 +42,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Марина"/>
             <column name="surname" value="Варфоломеева"/>
             <column name="age" value="45"/>
@@ -51,7 +51,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Нона"/>
             <column name="surname" value="Брынскиха"/>
             <column name="age" value="42"/>
@@ -60,7 +60,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Марк"/>
             <column name="surname" value="Косма"/>
             <column name="age" value="3"/>
@@ -69,7 +69,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Маргарита"/>
             <column name="surname" value="Мартьянова"/>
             <column name="age" value="24"/>
@@ -78,7 +78,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Каролина"/>
             <column name="surname" value="Нустрова"/>
             <column name="age" value="18"/>
@@ -87,7 +87,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Никита"/>
             <column name="surname" value="Копейкин"/>
             <column name="age" value="1"/>
@@ -96,7 +96,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Ефросиния"/>
             <column name="surname" value="Липина"/>
             <column name="age" value="9"/>
@@ -105,7 +105,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Людмила"/>
             <column name="surname" value="Семерикова"/>
             <column name="age" value="44"/>
@@ -114,7 +114,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Юнона"/>
             <column name="surname" value="Скороходова"/>
             <column name="age" value="40"/>
@@ -123,7 +123,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Марк"/>
             <column name="surname" value="Лагутов"/>
             <column name="age" value="1"/>
@@ -132,7 +132,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Матвейx"/>
             <column name="surname" value="Токмаков"/>
             <column name="age" value="44"/>
@@ -141,7 +141,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Александр"/>
             <column name="surname" value="Хребтов"/>
             <column name="age" value="37"/>
@@ -150,7 +150,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Петр"/>
             <column name="surname" value="Трутнев"/>
             <column name="age" value="37"/>
@@ -159,7 +159,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Самсон"/>
             <column name="surname" value="Демченко"/>
             <column name="age" value="23"/>
@@ -168,7 +168,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Лада"/>
             <column name="surname" value="Нилина"/>
             <column name="age" value="23"/>
@@ -177,7 +177,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Владимир"/>
             <column name="surname" value="Шишкарёв"/>
             <column name="age" value="39"/>
@@ -186,7 +186,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Софья"/>
             <column name="surname" value="Козырева"/>
             <column name="age" value="9"/>
@@ -195,7 +195,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Лилия"/>
             <column name="surname" value="Астафьева"/>
             <column name="age" value="34"/>
@@ -204,7 +204,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Екатерина"/>
             <column name="surname" value="Казьмина"/>
             <column name="age" value="24"/>
@@ -213,7 +213,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Яна"/>
             <column name="surname" value="Цуканова"/>
             <column name="age" value="7"/>
@@ -222,7 +222,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Серафим"/>
             <column name="surname" value="Яимов"/>
             <column name="age" value="12"/>
@@ -231,7 +231,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Фаина"/>
             <column name="surname" value="Доронина"/>
             <column name="age" value="11"/>
@@ -240,7 +240,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Мирослав"/>
             <column name="surname" value="Моряков"/>
             <column name="age" value="48"/>
@@ -249,7 +249,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Никанор"/>
             <column name="surname" value="Каблуков"/>
             <column name="age" value="38"/>
@@ -258,7 +258,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Зоя"/>
             <column name="surname" value="Челомеева"/>
             <column name="age" value="13"/>
@@ -267,7 +267,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Адриан"/>
             <column name="surname" value="Папилов"/>
             <column name="age" value="5"/>
@@ -276,7 +276,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Лукьян"/>
             <column name="surname" value="Урбановский"/>
             <column name="age" value="31"/>
@@ -285,7 +285,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Александр"/>
             <column name="surname" value="Мирзoян"/>
             <column name="age" value="12"/>
@@ -294,7 +294,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Савелий"/>
             <column name="surname" value="Каде"/>
             <column name="age" value="22"/>
@@ -303,7 +303,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Потап"/>
             <column name="surname" value="Бебчук"/>
             <column name="age" value="46"/>
@@ -312,7 +312,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Лада"/>
             <column name="surname" value="Абрашина"/>
             <column name="age" value="49"/>
@@ -321,7 +321,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Христина"/>
             <column name="surname" value="Мандрыка"/>
             <column name="age" value="25"/>
@@ -330,7 +330,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Мартын"/>
             <column name="surname" value="Гайдученко"/>
             <column name="age" value="6"/>
@@ -339,7 +339,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Алина"/>
             <column name="surname" value="Зимина"/>
             <column name="age" value="29"/>
@@ -348,7 +348,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Лада"/>
             <column name="surname" value="Оскорбина"/>
             <column name="age" value="39"/>
@@ -357,7 +357,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Феликс"/>
             <column name="surname" value="Домаш"/>
             <column name="age" value="36"/>
@@ -366,7 +366,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Мирон"/>
             <column name="surname" value="Горюнов"/>
             <column name="age" value="2"/>
@@ -375,7 +375,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Филимон"/>
             <column name="surname" value="Яковцов"/>
             <column name="age" value="32"/>
@@ -384,7 +384,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Владлена"/>
             <column name="surname" value="Гусева"/>
             <column name="age" value="16"/>
@@ -393,7 +393,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Мирослава"/>
             <column name="surname" value="Кирхенштейна"/>
             <column name="age" value="28"/>
@@ -402,7 +402,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Клавдий"/>
             <column name="surname" value="Власьев"/>
             <column name="age" value="40"/>
@@ -411,7 +411,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Никон"/>
             <column name="surname" value="Яновицкий"/>
             <column name="age" value="42"/>
@@ -420,7 +420,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Лавр"/>
             <column name="surname" value="Наполов"/>
             <column name="age" value="15"/>
@@ -429,7 +429,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Доминика"/>
             <column name="surname" value="Набойщикова"/>
             <column name="age" value="40"/>
@@ -438,7 +438,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Фока"/>
             <column name="surname" value="Астрединов"/>
             <column name="age" value="2"/>
@@ -447,7 +447,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Анисья"/>
             <column name="surname" value="Климова"/>
             <column name="age" value="38"/>
@@ -456,7 +456,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Алексей"/>
             <column name="surname" value="Москвин"/>
             <column name="age" value="47"/>
@@ -465,7 +465,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Эрнест"/>
             <column name="surname" value="Ящук"/>
             <column name="age" value="22"/>
@@ -474,7 +474,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Рада"/>
             <column name="surname" value="Радыгина"/>
             <column name="age" value="9"/>
@@ -483,7 +483,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Клавдий"/>
             <column name="surname" value="Шаляпин"/>
             <column name="age" value="40"/>
@@ -492,7 +492,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Юлий"/>
             <column name="surname" value="Браславец"/>
             <column name="age" value="14"/>
@@ -501,7 +501,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Викентий"/>
             <column name="surname" value="Сочинский"/>
             <column name="age" value="12"/>
@@ -510,7 +510,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Анастасия"/>
             <column name="surname" value="Прудникова"/>
             <column name="age" value="44"/>
@@ -519,7 +519,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Порфирий"/>
             <column name="surname" value="Ясаманов"/>
             <column name="age" value="21"/>
@@ -528,7 +528,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Диана"/>
             <column name="surname" value="Паршина"/>
             <column name="age" value="46"/>
@@ -537,7 +537,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Анатолий"/>
             <column name="surname" value="Парамонов"/>
             <column name="age" value="0"/>
@@ -546,7 +546,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Мир"/>
             <column name="surname" value="Виноградов"/>
             <column name="age" value="20"/>
@@ -555,7 +555,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Тимофей"/>
             <column name="surname" value="Чечёткин"/>
             <column name="age" value="3"/>
@@ -564,7 +564,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Иосиф"/>
             <column name="surname" value="Кутепов"/>
             <column name="age" value="5"/>
@@ -573,7 +573,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Мстислав"/>
             <column name="surname" value="Вахров"/>
             <column name="age" value="29"/>
@@ -582,7 +582,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Варфоломей"/>
             <column name="surname" value="Шайнюк"/>
             <column name="age" value="13"/>
@@ -591,7 +591,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Иннокентий"/>
             <column name="surname" value="Оленев"/>
             <column name="age" value="42"/>
@@ -600,7 +600,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Изольда"/>
             <column name="surname" value="Науменко"/>
             <column name="age" value="17"/>
@@ -609,7 +609,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Дарья"/>
             <column name="surname" value="Цыркунова"/>
             <column name="age" value="0"/>
@@ -618,7 +618,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Максимильян"/>
             <column name="surname" value="Милютин"/>
             <column name="age" value="11"/>
@@ -627,7 +627,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Майя"/>
             <column name="surname" value="Дагирова"/>
             <column name="age" value="14"/>
@@ -636,7 +636,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Моисей"/>
             <column name="surname" value="Аверин"/>
             <column name="age" value="15"/>
@@ -645,7 +645,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Таисия"/>
             <column name="surname" value="Фотина"/>
             <column name="age" value="11"/>
@@ -654,7 +654,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Анисья"/>
             <column name="surname" value="Вотякова"/>
             <column name="age" value="41"/>
@@ -663,7 +663,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Ираклий"/>
             <column name="surname" value="Югов"/>
             <column name="age" value="25"/>
@@ -672,7 +672,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Андриян"/>
             <column name="surname" value="Каприянов"/>
             <column name="age" value="46"/>
@@ -681,7 +681,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Вероника"/>
             <column name="surname" value="Чекина"/>
             <column name="age" value="34"/>
@@ -690,7 +690,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Светлана"/>
             <column name="surname" value="Дорогова"/>
             <column name="age" value="21"/>
@@ -699,7 +699,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Ипполит"/>
             <column name="surname" value="Мадулин"/>
             <column name="age" value="12"/>
@@ -708,7 +708,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Раиса"/>
             <column name="surname" value="Пишенина"/>
             <column name="age" value="49"/>
@@ -717,7 +717,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Розалия"/>
             <column name="surname" value="Капралова"/>
             <column name="age" value="20"/>
@@ -726,7 +726,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Семён"/>
             <column name="surname" value="Аносов"/>
             <column name="age" value="4"/>
@@ -735,7 +735,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Ульяна"/>
             <column name="surname" value="Тихоненко"/>
             <column name="age" value="33"/>
@@ -744,7 +744,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Мартын"/>
             <column name="surname" value="Новиков"/>
             <column name="age" value="0"/>
@@ -753,7 +753,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Анфиса"/>
             <column name="surname" value="Мизенова"/>
             <column name="age" value="25"/>
@@ -762,7 +762,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Агафья"/>
             <column name="surname" value="Пономарёва"/>
             <column name="age" value="7"/>
@@ -771,7 +771,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Анастасия"/>
             <column name="surname" value="Соколова"/>
             <column name="age" value="18"/>
@@ -780,7 +780,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Наталия"/>
             <column name="surname" value="Кузьмина"/>
             <column name="age" value="37"/>
@@ -789,7 +789,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Анисья"/>
             <column name="surname" value="Щербакова"/>
             <column name="age" value="38"/>
@@ -798,7 +798,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Владислава"/>
             <column name="surname" value="Брежнева"/>
             <column name="age" value="0"/>
@@ -807,7 +807,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Валерьян"/>
             <column name="surname" value="Соболев"/>
             <column name="age" value="11"/>
@@ -816,7 +816,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Порфирий"/>
             <column name="surname" value="Евлентьев"/>
             <column name="age" value="43"/>
@@ -825,7 +825,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Ксения"/>
             <column name="surname" value="Эзрина"/>
             <column name="age" value="45"/>
@@ -834,7 +834,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Зоя"/>
             <column name="surname" value="Голодяева"/>
             <column name="age" value="34"/>
@@ -843,7 +843,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Фаина"/>
             <column name="surname" value="Глинина"/>
             <column name="age" value="21"/>
@@ -852,7 +852,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Кира"/>
             <column name="surname" value="Курдикова"/>
             <column name="age" value="28"/>
@@ -861,7 +861,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Лавр"/>
             <column name="surname" value="Вергунов"/>
             <column name="age" value="18"/>
@@ -870,7 +870,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Маргарита"/>
             <column name="surname" value="Хабибова"/>
             <column name="age" value="20"/>
@@ -879,7 +879,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Иосиф"/>
             <column name="surname" value="Успенский"/>
             <column name="age" value="4"/>
@@ -888,7 +888,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Юлия"/>
             <column name="surname" value="Липина"/>
             <column name="age" value="22"/>
@@ -897,7 +897,7 @@
             <column name="city" value="Los Angeles"/>
         </insert>
 
-        <insert schemaName="social" tableName="client">
+        <insert  tableName="client">
             <column name="name" value="Клара"/>
             <column name="surname" value="Ефремова"/>
             <column name="age" value="19"/>

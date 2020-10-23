@@ -21,7 +21,7 @@ public class UserRepository {
 
     public User findByUserName(String name) {
 
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.user u where u.name  = ?");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM `user` u where u.name  = ?");) {
             preparedStatement.setString(1, name);
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
@@ -39,7 +39,7 @@ public class UserRepository {
         return null;
     }
     public void updateById(User user){
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("UPDATE social.user u  SET u.name=?, u.password=?  WHERE u.id=?", Statement.RETURN_GENERATED_KEYS);) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("UPDATE `user` u  SET u.name=?, u.password=?  WHERE u.id=?", Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.setLong(3, user.getId());
@@ -51,7 +51,7 @@ public class UserRepository {
     }
 
     public User getById(Long id){
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.user u where u.id  = ?");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM `user` u where u.id  = ?");) {
             preparedStatement.setLong(1, id);
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
@@ -70,7 +70,7 @@ public class UserRepository {
     }
 
     public void save(User user) {
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO social.user (`name`,password) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO `user` (`name`,password) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.execute();
@@ -81,7 +81,7 @@ public class UserRepository {
     }
 
     public void deleteById(Integer id) {
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("DELETE FROM social.user u WHERE u.id = ? ");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("DELETE FROM `user` u WHERE u.id = ? ");) {
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException throwables) {
@@ -91,7 +91,7 @@ public class UserRepository {
 
     public List<User> getAll() {
         List<User> users = new ArrayList<>();
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM social.user");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM `user`");) {
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {

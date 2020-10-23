@@ -45,7 +45,9 @@ public class ClientService {
 
         if (!fillData.equals("true")) return;
 
-        if (clientRepository.checkCount() >= startDataCount) {
+        Integer count = clientRepository.checkCount();
+        if(count == null) return;
+        if (count >= startDataCount) {
             System.out.println("database filled");
             return;
         }
