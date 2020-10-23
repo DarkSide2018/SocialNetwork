@@ -17,10 +17,13 @@ import java.util.Random;
 public class ClientService {
 
     @Value("${fillData}")
-    private String fillData="";
+    private String fillData = "true";
+    @Value("${startDataCount}")
+    private Integer startDataCount = 300;
     private final ClientRepository clientRepository;
     private Random random = new Random();
     private Faker faker = new Faker();
+
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
@@ -29,40 +32,41 @@ public class ClientService {
         return clientRepository.getAll(page, size);
     }
 
-    public List<Client> getByFirstNameAndSecondNamePrefix(String name, String surname){
-       return clientRepository.findByPrefixFirstNameAndSecondName(name,surname);
+    public List<Client> getByFirstNameAndSecondNamePrefix(String name, String surname) {
+        return clientRepository.findByPrefixFirstNameAndSecondName(name, surname);
     }
 
     public void saveClients(List<Client> clients) {
         clientRepository.batchSave(clients);
     }
+
     @PostConstruct
-    public void initData(){
+    public void initData() {
 
-        if(fillData.equals("true")){
-            if(clientRepository.checkCount()>=1000000){
-                System.out.println("database filled");
-                return;
+        if (!fillData.equals("true")) return;
+
+        if (clientRepository.checkCount() >= startDataCount) {
+            System.out.println("database filled");
+            return;
+        }
+        System.out.println("start fill data");
+        List<Client> clientList = new ArrayList<>(5000);
+        for (int i = 0; i < startDataCount; i++) {
+            Client client = new Client();
+            String name = faker.name().firstName();
+            client.setName(name);
+            client.setSurName(faker.name().lastName());
+            client.setInterest(faker.chuckNorris().fact());
+            client.setAge(random.nextInt(50));
+            client.setCity(faker.address().city());
+            client.setGender(faker.demographic().sex());
+            clientList.add(client);
+            if (clientList.size() >= 5000) {
+                saveClients(clientList);
+                clientList.clear();
             }
-            System.out.println("start fill data");
-            List<Client>clientList = new ArrayList<>(5000);
-                    for(int i=0;i<10000;i++){
-                        Client client = new Client();
-                        String name = faker.name().firstName();
-                        client.setName(name);
-                        client.setSurName(faker.name().lastName());
-                        client.setInterest(faker.chuckNorris().fact());
-                        client.setAge(random.nextInt(50));
-                        client.setCity(faker.address().city());
-                        client.setGender(faker.demographic().sex());
-                        clientList.add(client);
-                        if(clientList.size()>=5000){
-                            saveClients(clientList);
-                            clientList.clear();
-                        }
-                    }
-
         }
         System.out.println("end fillData");
     }
 }
+
