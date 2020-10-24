@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-
-    <include file="/db/changelog/changes/create-client-table.xml"/>
-    <include file="/db/changelog/changes/create-user-table-16-10.xml"/>
-    <include file="/db/changelog/changes/fill-client-table-21-10.xml"/>
-    <include file="/db/changelog/changes/fill-client-table-24-10.xml"/>
+    <changeSet author="admin" id="2020-10-24T22:35:13">
+        <sql>
+            ALTER TABLE client ADD INDEX byNameAndSurname (name,surname)
+        </sql>
+    </changeSet>
 </databaseChangeLog>

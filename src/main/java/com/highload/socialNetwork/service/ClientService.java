@@ -66,6 +66,12 @@ public class ClientService {
             if (clientList.size() >= 5000) {
                 saveClients(clientList);
                 clientList.clear();
+                Integer counter = clientRepository.checkCount();
+                if(counter == null) return;
+                if (counter >= startDataCount) {
+                    System.out.println("database filled");
+                    return;
+                }
             }else if(i>=startDataCount-1){
                 saveClients(clientList);
             }
