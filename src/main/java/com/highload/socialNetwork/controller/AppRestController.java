@@ -22,13 +22,15 @@ public class AppRestController {
 
     @GetMapping({"/user/{name}"})
     public User getByName(@PathVariable(value = "name") String name) {
-
-        return   userService.getUserByName(name);
+        return userService.getUserByName(name);
     }
-    @PostMapping(value = "/client/findbyprefix",
-            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public List<Client> findClient(@RequestBody Client clientForm){
-        return clientService.getByFirstNameAndSecondNamePrefix(clientForm.getName(), clientForm.getSurName());
+
+    @GetMapping(value = "/client/find_by_prefix/{name}/{surname}",
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<Client> findClient(
+            @PathVariable String name,
+            @PathVariable String surname
+    ) {
+        return clientService.getByFirstNameAndSecondNamePrefix(name, surname);
     }
 }
