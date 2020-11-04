@@ -38,5 +38,9 @@
             <column name="interest" value="books"/>
             <column name="city" value="Los Angeles"/>
         </insert>
+        <sql>
+            ALTER DATABASE social CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+            ALTER TABLE social.client CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+        </sql>
     </changeSet>
 </databaseChangeLog>
