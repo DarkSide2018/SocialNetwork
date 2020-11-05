@@ -58,7 +58,7 @@ public class ClientService {
             String name = faker.name().firstName();
             client.setName(name);
             client.setSurName(faker.name().lastName());
-            client.setInterest(faker.chuckNorris().fact());
+            client.setInterest(faker.lorem().sentence(10));
             client.setAge(random.nextInt(50));
             client.setCity(faker.address().city());
             client.setGender(faker.demographic().sex());

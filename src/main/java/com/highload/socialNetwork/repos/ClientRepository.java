@@ -77,7 +77,7 @@ public class ClientRepository {
 
     public List<Client> findByPrefixFirstNameAndSecondName(String first, String second) {
         List<Client> clients = new ArrayList<>();
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("SELECT * FROM client sc WHERE sc.name LIKE ? and sc.surname LIKE ? order by sc.id LIMIT 50 ");) {
+        try (PreparedStatement preparedStatement = provider.getSlaveConnection().prepareStatement("SELECT * FROM client sc WHERE sc.name LIKE ? and sc.surname LIKE ? order by sc.id LIMIT 50 ");) {
             int i = 1;
             preparedStatement.setString(i++, first+"%");
             preparedStatement.setString(i++, second+"%");
