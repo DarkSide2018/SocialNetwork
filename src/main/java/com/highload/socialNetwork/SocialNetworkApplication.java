@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class SocialNetworkApplication {
 
     public static void main(String[] args) {
-        System.setProperty("spring.profiles.default", "dev");
+        System.setProperty("spring.profiles.default", "h2mem");
         SpringApplication.run(SocialNetworkApplication.class, args);
     }
 }

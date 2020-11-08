@@ -108,6 +108,7 @@ echo "Starting proxysql container"
 echo "---------------------------"
 docker run -d \
   --name proxysql \
+  --hostname=proxysql\
   --network=springboot-proxysql-mysql \
   --restart=unless-stopped \
   --publish 6032:6032 \
