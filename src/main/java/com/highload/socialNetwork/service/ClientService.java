@@ -62,6 +62,7 @@ public class ClientService {
             client.setAge(random.nextInt(50));
             client.setCity(faker.address().city());
             client.setGender(faker.demographic().sex());
+            System.out.println("client was created  with name -> " + client.getName() + " and surname -> " + client.getSurName());
             clientList.add(client);
             if (clientList.size() >= 5000) {
                 saveClients(clientList);
