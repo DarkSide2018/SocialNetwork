@@ -35,6 +35,9 @@ public class ClientService {
     public List<Client> getByFirstNameAndSecondNamePrefix(String name, String surname) {
         return clientRepository.findByPrefixFirstNameAndSecondName(name, surname);
     }
+    public List<Client> getByName(String name) {
+        return clientRepository.getClientByName(name);
+    }
 
     public void saveClients(List<Client> clients) {
         clientRepository.batchSave(clients);

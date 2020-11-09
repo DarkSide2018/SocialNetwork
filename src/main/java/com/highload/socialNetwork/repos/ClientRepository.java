@@ -101,4 +101,29 @@ public class ClientRepository {
         }
         return clients;
     }
+    public List<Client> getClientByName(String first) {
+        List<Client> clients = new ArrayList<>();
+        try (PreparedStatement preparedStatement = provider.getSlaveConnection().prepareStatement("SELECT * FROM client sc WHERE sc.name LIKE ? order by sc.id LIMIT 50 ");) {
+            int i = 1;
+            preparedStatement.setString(i++, first+"%");
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                Client client = new Client(
+                        resultSet.getLong("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("surName"),
+                        resultSet.getInt("age"),
+                        resultSet.getString("gender"),
+                        resultSet.getString("interest"),
+                        resultSet.getString("city")
+                );
+                clients.add(client);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return clients;
+    }
 }

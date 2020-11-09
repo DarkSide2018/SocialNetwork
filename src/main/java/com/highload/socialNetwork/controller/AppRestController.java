@@ -33,4 +33,11 @@ public class AppRestController {
     ) {
         return clientService.getByFirstNameAndSecondNamePrefix(name, surname);
     }
+    @GetMapping(value = "/client/{name}",
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<Client> findClientByName(
+            @PathVariable String name
+    ) {
+        return clientService.getByName(name);
+    }
 }

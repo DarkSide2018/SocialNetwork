@@ -44,6 +44,7 @@ echo "--------------------------------"
 docker run -d \
   --name mysql-slave-1 \
   --network=springboot-proxysql-mysql \
+  -v /mysql-data:/var/lib/mysql
   --restart=unless-stopped \
   --env "MYSQL_ROOT_PASSWORD=secret" \
   --publish 3341:3306 \
