@@ -9,12 +9,12 @@ echo
 echo "Starting environment"
 echo "===================="
 
-echo
+echo "=========================="
 echo "Creating network"
 echo "----------------"
 docker network create springboot-proxysql-mysql
 
-echo
+echo "=========================="
 echo "Starting mysql-master container"
 echo "-------------------------------"
 docker run -d \
@@ -30,6 +30,7 @@ docker run -d \
   --health-start-period=10s \
   mysql:${MYSQL_VERSION} \
     --server-id=1 \
+    --binlog_format=row \
     --log-bin='mysql-bin-1.log' \
     --relay_log_info_repository=TABLE \
     --master-info-repository=TABLE \
@@ -37,7 +38,7 @@ docker run -d \
     --log-slave-updates=ON \
     --enforce-gtid-consistency
 
-echo
+echo "=========================="
 echo "Starting mysql-slave-1 container"
 echo "--------------------------------"
 docker run -d \
@@ -50,6 +51,7 @@ docker run -d \
   --health-start-period=10s \
   mysql:${MYSQL_VERSION} \
     --server-id=2 \
+    --binlog_format=row \
     --enforce-gtid-consistency=ON \
     --log-slave-updates=ON \
     --read_only=TRUE \
@@ -57,7 +59,7 @@ docker run -d \
     --skip-log-slave-updates \
     --gtid-mode=ON
 
-echo
+echo "=========================="
 echo "Starting mysql-slave-2 container"
 echo "--------------------------------"
 docker run -d \
@@ -70,6 +72,7 @@ docker run -d \
   --health-start-period=10s \
   mysql:${MYSQL_VERSION} \
     --server-id=3 \
+    --binlog_format=row \
     --enforce-gtid-consistency=ON \
     --log-slave-updates=ON \
     --read_only=TRUE \
@@ -77,24 +80,24 @@ docker run -d \
     --skip-log-slave-updates \
     --gtid-mode=ON
 
-echo
+echo "=========================="
 wait_for_container_log "mysql-master" "port: 3306"
 wait_for_container_log "mysql-slave-1" "port: 3306"
 wait_for_container_log "mysql-slave-2" "port: 3306"
 
-echo
+echo "=========================="
 echo "Setting MySQL Replication"
 echo "-------------------------"
 docker exec -i mysql-master mysql -uroot -psecret < scripts/master-replication.sql
 docker exec -i mysql-slave-1 mysql -uroot -psecret < scripts/slave-replication.sql
 docker exec -i mysql-slave-2 mysql -uroot -psecret < scripts/slave-replication.sql
 
-echo
+echo "=========================="
 echo "Checking MySQL Replication"
 echo "--------------------------"
 ./scripts/check-replication-status.sh
 
-echo
+echo "=========================="
 echo "Creating ProxySQL monitor user"
 echo "------------------------------"
 docker exec -i mysql-master mysql -uroot -psecret --ssl-mode=DISABLED < scripts/master-proxysql-monitor-user.sql
@@ -103,7 +106,7 @@ echo
 echo "Waiting 5 seconds before starting proxysql container ..."
 sleep 5
 
-echo
+echo "=========================="
 echo "Starting proxysql container"
 echo "---------------------------"
 docker run -d \
@@ -116,16 +119,15 @@ docker run -d \
   --volume $PWD/scripts/proxysql.cnf:/etc/proxysql.cnf \
   proxysql/proxysql:${PROXYSQL_VERSION}
 
-echo
+echo "=========================="
 echo "Waiting 5 seconds before checking mysql servers"
 sleep 5
 
-echo
+echo "=========================="
 echo "Checking mysql servers"
 echo "----------------------"
 docker exec -i mysql-master bash -c 'mysql -hproxysql -P6032 -uradmin -pradmin --prompt "ProxySQL Admin> " <<< "select * from mysql_servers;"'
 
-echo
+echo "=========================="
 echo "Environment Up and Running"
 echo "=========================="
-echo
