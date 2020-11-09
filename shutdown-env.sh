@@ -7,7 +7,7 @@ echo "================================="
 echo
 echo "Removing containers"
 echo "-------------------"
-docker rm -fv mysql-master mysql-slave-1 mysql-slave-2 proxysql
+docker rm -fv mysql-master mysql-slave-1 mysql-slave-2 proxysql spring-social
 
 echo
 echo "Removing network"
