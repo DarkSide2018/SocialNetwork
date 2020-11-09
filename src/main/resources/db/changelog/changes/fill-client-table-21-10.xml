@@ -8,6 +8,34 @@
 
     <changeSet author="admin" id="2020-11-9T09:39:13">
         <sqlFile path="/db/changelog/sql/client1.sql" />
-        <sqlFile path="/db/changelog/sql/client2.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_2.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_3.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_4.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_5.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_6.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_7.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_8.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_9.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_10.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_11.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_12.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_13.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_14.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_15.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_16.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_17.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_18.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_19.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_20.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_21.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_22.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_23.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_24.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_25.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_26.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_27.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_28.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_29.sql" />
+        <sqlFile path="/db/changelog/sql/client_202011100120_30.sql" />
     </changeSet>
 </databaseChangeLog>
