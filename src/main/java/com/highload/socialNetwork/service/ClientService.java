@@ -41,6 +41,7 @@ public class ClientService {
 
     public void saveClients(List<Client> clients) {
         clientRepository.batchSave(clients);
+        System.out.println("clients were saved");
     }
 
     @PostConstruct

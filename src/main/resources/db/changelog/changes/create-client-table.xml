@@ -19,6 +19,7 @@
             <column name="gender" type="VARCHAR(32)"/>
             <column name="interest" type="VARCHAR(255)"/>
             <column name="city" type="VARCHAR(255)"/>
+            <column name="created_at" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="admin" id="2">

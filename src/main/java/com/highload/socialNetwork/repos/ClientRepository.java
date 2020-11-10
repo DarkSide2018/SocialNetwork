@@ -66,7 +66,7 @@ public class ClientRepository {
                 preparedStatement.setInt(i++, client.getAge());
                 preparedStatement.setString(i++, client.getGender());
                 preparedStatement.setString(i++, client.getInterest());
-                preparedStatement.setString(i++, client.getCity());
+                preparedStatement.setString(i, client.getCity());
                 preparedStatement.addBatch();
             }
             preparedStatement.executeBatch();
@@ -80,7 +80,7 @@ public class ClientRepository {
         try (PreparedStatement preparedStatement = provider.getSlaveConnection().prepareStatement("SELECT * FROM client sc WHERE sc.name LIKE ? and sc.surname LIKE ? order by sc.id LIMIT 50 ");) {
             int i = 1;
             preparedStatement.setString(i++, first+"%");
-            preparedStatement.setString(i++, second+"%");
+            preparedStatement.setString(i, second+"%");
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {
@@ -105,7 +105,7 @@ public class ClientRepository {
         List<Client> clients = new ArrayList<>();
         try (PreparedStatement preparedStatement = provider.getSlaveConnection().prepareStatement("SELECT * FROM client sc WHERE sc.name LIKE ? order by sc.id LIMIT 50 ");) {
             int i = 1;
-            preparedStatement.setString(i++, first+"%");
+            preparedStatement.setString(i, first+"%");
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {
