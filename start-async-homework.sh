@@ -2,7 +2,7 @@
 
 source scripts/my-functions.sh
 
-sh init-env.sh
+sh init-async-env.sh
 echo
 echo
 echo "build and run spring boot jar"
