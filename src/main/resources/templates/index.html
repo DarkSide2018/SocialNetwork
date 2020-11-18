@@ -17,7 +17,7 @@
             <a th:href="@{/pageLeft}">left</a>
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="row">
                 <form method="post" th:action="@{/findByPrefix}" th:object="${clientForm}">
 
@@ -63,6 +63,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="col-md-1">
+            <a th:href="@{/chatting}">chat</a>
         </div>
         <div class="col-md-1">
             <a th:href="@{/pageRight}">right</a>
