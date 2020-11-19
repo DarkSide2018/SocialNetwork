@@ -12,10 +12,10 @@ public class ChatRoomService {
         this.chatRoomRepository = chatRoomRepository;
     }
 
-    public String getChatId(
-            String senderId, String recipientId, boolean createIfNotExist) {
+    public Long getChatId(
+            Long senderId, Long recipientId, boolean createIfNotExist) {
 
-        String chatId = chatRoomRepository
+        Long chatId = chatRoomRepository
                 .findBySenderIdAndRecipientId(senderId, recipientId).getChatId();
         ChatRoom senderRecipient = ChatRoom
                 .builder()

@@ -8,8 +8,8 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class ChatNotification {
-    private String id;
-    private String senderId;
+    private Long id;
+    private Long senderId;
     private String senderName;
 
 }

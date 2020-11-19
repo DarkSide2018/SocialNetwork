@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="admin" id="2020-11-19T09:09:13">
+        <createTable  tableName="chat_message">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="chat_id" type="BIGINT"/>
+            <column name="sender_id" type="BIGINT"/>
+            <column name="recipient_id" type="BIGINT"/>
+            <column name="sender_name" type="VARCHAR(255)"/>
+            <column name="recipient_name" type="VARCHAR(255)"/>
+            <column name="content" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="timestamp" type="TIMESTAMP"/>
+        </createTable>
+        <createTable  tableName="chat_notification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="sender_id" type="BIGINT"/>
+            <column name="sender_name" type="VARCHAR(255)"/>
+        </createTable>
+        <createTable  tableName="chat_room">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="chat_id" type="BIGINT"/>
+            <column name="sender_id" type="BIGINT"/>
+            <column name="recipient_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

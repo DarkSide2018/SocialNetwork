@@ -7,12 +7,12 @@ import lombok.Getter;
 @Getter
 @Builder
 public class ChatRoom {
-    private String id;
-    private String chatId;
-    private String senderId;
-    private String recipientId;
+    private Long id;
+    private Long chatId;
+    private Long senderId;
+    private Long recipientId;
 
-    public String getChatId() {
+    public Long getChatId() {
         return id;
     }
 }
