@@ -11,8 +11,6 @@ import java.sql.SQLException;
 public class DbConnectionProvider {
     @Value("${spring.datasource.url}")
     private String jdbcUrl;
-    @Value("${slave.datasource.url}")
-    private String slaveJdbcUrl;
     @Value("${spring.datasource.username}")
     private String user;
     @Value("${spring.datasource.password}")
@@ -25,17 +23,6 @@ public class DbConnectionProvider {
                connection = DriverManager.getConnection(jdbcUrl, user, password);
            }
            return connection;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            return null;
-        }
-    }
-    public Connection getSlaveConnection() {
-        try {
-            if(connection == null){
-                connection = DriverManager.getConnection(slaveJdbcUrl, user, password);
-            }
-            return connection;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return null;
