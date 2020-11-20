@@ -30,7 +30,7 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="chat_id" type="BIGINT"/>
+            <column name="chat_id" type="VARCHAR(255)"/>
             <column name="sender_id" type="BIGINT"/>
             <column name="recipient_id" type="BIGINT"/>
         </createTable>
