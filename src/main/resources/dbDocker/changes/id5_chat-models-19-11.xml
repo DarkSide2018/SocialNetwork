@@ -10,7 +10,7 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="chat_id" type="BIGINT"/>
+            <column name="chat_id" type="VARCHAR(255)"/>
             <column name="sender_id" type="BIGINT"/>
             <column name="recipient_id" type="BIGINT"/>
             <column name="sender_name" type="VARCHAR(255)"/>
@@ -34,5 +34,15 @@
             <column name="sender_id" type="BIGINT"/>
             <column name="recipient_id" type="BIGINT"/>
         </createTable>
+        <insert tableName="chat_room">
+            <column name="chat_id" value="1_2"/>
+            <column name="sender_id" value="1"/>
+            <column name="recipient_id" value="2"/>
+        </insert>
+        <insert tableName="chat_room">
+            <column name="chat_id" value="2_1"/>
+            <column name="sender_id" value="2"/>
+            <column name="recipient_id" value="1"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>

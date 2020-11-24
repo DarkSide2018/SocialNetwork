@@ -18,7 +18,7 @@ public class ChatMessageRepository {
     }
 
     public void save(ChatMessage chatMessage, int shardNumber) {
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO chat_message (chat_id,sender_id,recipient_id,sender_name,recipient_name,content,status,`timestamp`) VALUES (?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
+        try (PreparedStatement preparedStatement = provider.getConnection(shardNumber).prepareStatement("INSERT INTO chat_message (chat_id,sender_id,recipient_id,sender_name,recipient_name,content,status,`timestamp`) VALUES (?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
             int i = 1;
             preparedStatement.setString(i++, chatMessage.getChatId());
             preparedStatement.setLong(i++, chatMessage.getSenderId());

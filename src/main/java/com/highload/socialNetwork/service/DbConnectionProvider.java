@@ -15,6 +15,8 @@ public class DbConnectionProvider {
     private String user;
     @Value("${spring.datasource.password}")
     private String password;
+    @Value("${spring.datasource.url-shard}")
+    private String jdbcShardUrl;
     private Connection connection = null;
 
     public Connection getConnection() {
@@ -23,6 +25,33 @@ public class DbConnectionProvider {
                connection = DriverManager.getConnection(jdbcUrl, user, password);
            }
            return connection;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+    }
+    public Connection getConnection(int shard) {
+     if(shard == 1) return getFirstShardConnection();
+     if(shard == 2) return getSecondShardConnection();
+     return getFirstShardConnection();
+    }
+    public Connection getFirstShardConnection() {
+        try {
+            if(connection == null){
+                connection = DriverManager.getConnection(jdbcUrl, user, password);
+            }
+            return connection;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+    }
+    public Connection getSecondShardConnection() {
+        try {
+            if(connection == null){
+                connection = DriverManager.getConnection(jdbcShardUrl, user, password);
+            }
+            return connection;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return null;

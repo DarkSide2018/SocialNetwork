@@ -1,7 +1,6 @@
 package com.highload.socialNetwork.repos;
 
 import com.highload.socialNetwork.model.ChatRoom;
-import com.highload.socialNetwork.model.Client;
 import com.highload.socialNetwork.service.DbConnectionProvider;
 import org.springframework.stereotype.Repository;
 
@@ -9,8 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public class ChatRoomRepository {
