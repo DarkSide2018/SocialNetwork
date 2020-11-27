@@ -13,7 +13,6 @@ echo "=========================="
 echo "Creating network"
 echo "----------------"
 docker network create springboot-proxysql-mysql
-docker network create springboot-proxysql-mysql-2
 
 echo "=========================="
 echo "Starting mysql-master containers"
@@ -41,7 +40,7 @@ docker run -d \
 
 docker run -d \
   --name mysql-master-2 \
-  --network=springboot-proxysql-mysql-2 \
+  --network=springboot-proxysql-mysql \
   --restart=unless-stopped \
   --env "MYSQL_ROOT_PASSWORD=secret" \
   --env "MYSQL_DATABASE=social" \
@@ -83,7 +82,7 @@ docker run -d \
 
 docker run -d \
   --name mysql-slave-10 \
-  --network=springboot-proxysql-mysql-2\
+  --network=springboot-proxysql-mysql\
   --restart=unless-stopped \
   --env "MYSQL_ROOT_PASSWORD=secret" \
   --publish 3351:3306 \
@@ -122,7 +121,7 @@ docker run -d \
 
 docker run -d \
   --name mysql-slave-20 \
-  --network=springboot-proxysql-mysql-2\
+  --network=springboot-proxysql-mysql\
   --restart=unless-stopped \
   --env "MYSQL_ROOT_PASSWORD=secret" \
   --publish 3352:3306 \
@@ -185,7 +184,7 @@ docker run -d \
 docker run -d \
   --name proxysql-2 \
   --hostname=proxysql\
-  --network=springboot-proxysql-mysql-2 \
+  --network=springboot-proxysql-mysql \
   --restart=unless-stopped \
   --publish 6042:6032 \
   --publish 6043:6033 \

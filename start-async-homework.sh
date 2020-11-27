@@ -10,7 +10,7 @@ echo "=========================="
 echo
 ./gradlew clean build
 docker build . -t spring-social
-docker run -p 8080:8080 --network=springboot-proxysql-mysql spring-social:latest
+docker run -d -p 8080:8080 --network=springboot-proxysql-mysql --name springSocial spring-social
 
 echo
 echo "spring social was started"
