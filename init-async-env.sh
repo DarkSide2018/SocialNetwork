@@ -151,8 +151,8 @@ docker exec -i mysql-slave-1 mysql -uroot -psecret < scripts/slave-replication.s
 docker exec -i mysql-slave-2 mysql -uroot -psecret < scripts/slave-replication.sql
 
 docker exec -i mysql-master-2 mysql -uroot -psecret < scripts/master-replication.sql
-docker exec -i mysql-slave-10 mysql -uroot -psecret < scripts/slave-replication.sql
-docker exec -i mysql-slave-20 mysql -uroot -psecret < scripts/slave-replication.sql
+docker exec -i mysql-slave-10 mysql -uroot -psecret < scripts/shard/slave-replication.sql
+docker exec -i mysql-slave-20 mysql -uroot -psecret < scripts/shard/slave-replication.sql
 
 echo "=========================="
 echo "Checking MySQL Replication"

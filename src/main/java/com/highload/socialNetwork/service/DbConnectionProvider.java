@@ -9,15 +9,17 @@ import java.sql.SQLException;
 
 @Service
 public class DbConnectionProvider {
-    @Value("${spring.datasource.url}")
+
+    @Value("${spring.primarydatasource.url}")
     private String jdbcUrl;
     @Value("${spring.datasource.username}")
     private String user;
     @Value("${spring.datasource.password}")
     private String password;
-    @Value("${spring.datasource.url-shard}")
+    @Value("${spring.secondarydatasource.url}")
     private String jdbcShardUrl;
     private Connection connection = null;
+    private Connection secondaryConnection = null;
 
     public Connection getConnection() {
         try {
@@ -48,10 +50,10 @@ public class DbConnectionProvider {
     }
     public Connection getSecondShardConnection() {
         try {
-            if(connection == null){
-                connection = DriverManager.getConnection(jdbcShardUrl, user, password);
+            if(secondaryConnection == null){
+                secondaryConnection = DriverManager.getConnection(jdbcShardUrl, user, password);
             }
-            return connection;
+            return secondaryConnection;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return null;

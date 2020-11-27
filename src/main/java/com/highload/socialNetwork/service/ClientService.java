@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-@DependsOn("liquibase")
+@DependsOn("primaryLiquibase")
 public class ClientService {
 
     @Value("${fillData}")

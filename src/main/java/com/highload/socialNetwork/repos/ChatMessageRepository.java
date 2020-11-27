@@ -3,6 +3,7 @@ package com.highload.socialNetwork.repos;
 import com.highload.socialNetwork.model.ChatMessage;
 import com.highload.socialNetwork.model.MessageStatus;
 import com.highload.socialNetwork.service.DbConnectionProvider;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
@@ -10,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 @Repository
+@DependsOn("secondaryLiquibase")
 public class ChatMessageRepository {
     private final DbConnectionProvider provider;
 
