@@ -178,7 +178,7 @@ docker run -d \
   --restart=unless-stopped \
   --publish 6032:6032 \
   --publish 6033:6033 \
-  --volume $PWD/scripts/proxysql.cnf:/etc/proxysql.cnf \
+  --volume "/$(pwd)/scripts/proxysql.cnf:/etc/proxysql.cnf" \
   proxysql/proxysql:${PROXYSQL_VERSION}
 
 docker run -d \
@@ -188,7 +188,7 @@ docker run -d \
   --restart=unless-stopped \
   --publish 6042:6032 \
   --publish 6043:6033 \
-  --volume $PWD/scripts/proxysql-2.cnf:/etc/proxysql.cnf \
+  --volume "/$(pwd)/scripts/proxysql-2.cnf:/etc/proxysql.cnf" \
   proxysql/proxysql:${PROXYSQL_VERSION}
 
 echo "=========================="

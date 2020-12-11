@@ -28,6 +28,11 @@ ext {
 dependencies {
 	implementation 'com.google.code.gson:gson:2.8.6'
 	implementation 'com.h2database:h2:1.4.200'
+	implementation 'org.webjars:webjars-locator:0.40'
+	implementation 'org.webjars:sockjs-client:1.1.2'
+	implementation 'org.webjars:stomp-websocket:2.3.3-1'
+	implementation 'org.webjars:bootstrap:4.5.3'
+	implementation 'org.webjars.bower:jquery:3.5.1'
 	implementation 'javax.websocket:javax.websocket-api:1.1'
 	implementation  'com.github.javafaker:javafaker:0.15'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
