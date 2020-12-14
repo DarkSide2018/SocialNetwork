@@ -1,7 +1,7 @@
 package com.highload.socialNetwork.repos;
 
 import com.highload.socialNetwork.model.ChatNotification;
-import com.highload.socialNetwork.service.DbConnectionProvider;
+import com.highload.socialNetwork.config.DbConnectionProvider;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;

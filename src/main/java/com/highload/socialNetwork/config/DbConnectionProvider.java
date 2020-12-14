@@ -1,4 +1,4 @@
-package com.highload.socialNetwork.service;
+package com.highload.socialNetwork.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

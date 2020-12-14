@@ -1,5 +1,6 @@
 package com.highload.socialNetwork;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +32,8 @@ public class SocialNetworkApplication {
     @Value("${spring.datasource.username}")
     private String user;
     @Value("${spring.datasource.password}")
-    private  String password;
+    private String password;
+
     public static void main(String[] args) {
         System.setProperty("spring.profiles.default", "docker");
         SpringApplication.run(SocialNetworkApplication.class, args);
@@ -41,10 +43,17 @@ public class SocialNetworkApplication {
     public Faker faker() throws Exception {
         return new Faker();
     }
+
     @Bean
     public Random random() throws Exception {
         return new Random();
     }
+
+    @Bean
+    public ObjectMapper objectMapper() throws Exception {
+        return new ObjectMapper();
+    }
+
     @Bean
     @Primary
     @ConfigurationProperties(prefix = "spring.primarydatasource")
@@ -93,6 +102,7 @@ public class SocialNetworkApplication {
     public SpringLiquibase secondaryLiquibase() {
         return springLiquibase(secondaryDataSource(), secondaryLiquibaseProperties());
     }
+
     private static SpringLiquibase springLiquibase(DataSource dataSource, LiquibaseProperties properties) {
         SpringLiquibase liquibase = new SpringLiquibase();
         liquibase.setDataSource(dataSource);
