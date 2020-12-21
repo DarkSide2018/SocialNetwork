@@ -201,6 +201,7 @@ echo "----------------------"
 docker exec -i mysql-master bash -c 'mysql -hproxysql -P6032 -uradmin -pradmin --prompt "ProxySQL Admin> " <<< "select * from mysql_servers;"'
 docker exec -i mysql-master-2 bash -c 'mysql -hproxysql -P6032 -uradmin -pradmin --prompt "ProxySQL Admin> " <<< "select * from mysql_servers;"'
 
+cd scripts/kafka && docker-compose up -d
 echo "=========================="
 echo "Environment Up and Running"
 echo "=========================="
