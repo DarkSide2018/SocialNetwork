@@ -17,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import javax.sql.DataSource;
 import java.util.Random;
 
-@EnableWebMvc
 @SpringBootApplication
 @EnableScheduling
 public class SocialNetworkApplication {

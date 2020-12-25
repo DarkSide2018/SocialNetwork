@@ -53,4 +53,9 @@ public class AppController {
     public String postlogin() {
         return "login";
     }
+
+    @GetMapping("/chat")
+    public String chatting() {
+        return "chat";
+    }
 }
