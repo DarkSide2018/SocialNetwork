@@ -1,6 +1,5 @@
 package com.highload.socialNetwork.kafka;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
@@ -14,9 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 @ConditionalOnProperty(value = "example.kafka.consumer-enabled", havingValue = "true")
 public class Consumer {
-
-    private final Logger logger = LoggerFactory.getLogger(com.highload.socialNetwork.kafka.Producer.class);
-
     @KafkaListener(topics = {"INPUT_DATA"})
     public void consume(final @Payload String message,
                         final @Header(KafkaHeaders.OFFSET) Integer offset,
@@ -26,7 +22,7 @@ public class Consumer {
                         final @Header(KafkaHeaders.RECEIVED_TIMESTAMP) long ts,
                         final Acknowledgment acknowledgment
     ) {
-        logger.warn(String.format("#### -> Consumed message -> TIMESTAMP: %d\n%s\noffset: %d\nkey: %s\npartition: %d\ntopic: %s", ts, message, offset, key, partition, topic));
+        System.out.println(String.format("#### -> Consumed message -> TIMESTAMP: %d\n%s\noffset: %d\nkey: %s\npartition: %d\ntopic: %s", ts, message, offset, key, partition, topic));
         acknowledgment.acknowledge();
     }
 }
