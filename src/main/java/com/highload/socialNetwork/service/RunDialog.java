@@ -4,13 +4,15 @@ import com.github.javafaker.Faker;
 import com.highload.socialNetwork.model.ChatMessage;
 import com.highload.socialNetwork.repos.ChatMessageRepository;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Random;
 
 public class RunDialog implements Runnable {
 
     private Random random;
-
+    @Value("${runDialog}")
+    private Boolean runDialog = false;
     private final ChatMessageRepository chatMessageRepository;
 
     private final Faker faker;
@@ -24,7 +26,8 @@ public class RunDialog implements Runnable {
     @SneakyThrows
     @Override
     public void run() {
-        while (true) {
+
+        while (runDialog) {
             int anInt = random.nextInt(4);
             ChatMessage chatMessage;
             if (anInt == 3) {

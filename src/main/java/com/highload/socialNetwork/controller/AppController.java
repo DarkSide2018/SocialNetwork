@@ -17,12 +17,10 @@ import java.util.List;
 public class AppController {
     private final ClientService service;
     private final UserService userService;
-    private final SecurityService securityService;
 
-    public AppController(ClientService service, UserService userService, SecurityService securityService) {
+    public AppController(ClientService service, UserService userService) {
         this.service = service;
         this.userService = userService;
-        this.securityService = securityService;
     }
 
     @ModelAttribute("clientForm")
