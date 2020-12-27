@@ -11,7 +11,7 @@
 
 Local launch:
 
-sh ./start-async-env.sh
+sh ./start-async-homework.sh
 
 Когда окружение работает можно зайти на мастер и на слейв
  (Master)
