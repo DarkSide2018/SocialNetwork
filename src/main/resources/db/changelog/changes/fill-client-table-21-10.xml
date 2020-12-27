@@ -7,7 +7,7 @@
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <changeSet author="admin" id="2020-11-9T09:39:13">
-        <sqlFile path="/db/changelog/sql/client1.sql" />
+<!--        <sqlFile path="/db/changelog/sql/client1.sql" />-->
 <!--        <sqlFile path="/db/changelog/sql/client_202011100120_2.sql" />-->
 <!--        <sqlFile path="/db/changelog/sql/client_202011100120_3.sql" />-->
 <!--        <sqlFile path="/db/changelog/sql/client_202011100120_4.sql" />-->

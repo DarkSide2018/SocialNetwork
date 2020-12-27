@@ -19,7 +19,7 @@ public class GreetingController {
 
     @MessageMapping("/chuck")
     @SendTo("/topic/answer")
-    public Greeting answer(String message) {
+    public Greeting answer() {
         return new Greeting(generator.createMessage().getContent());
     }
 }

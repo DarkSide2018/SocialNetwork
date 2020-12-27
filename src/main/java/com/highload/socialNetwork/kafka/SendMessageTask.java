@@ -18,7 +18,7 @@ public class SendMessageTask {
         this.producer = producer;
     }
 
-    @Scheduled(fixedRateString = "900000")
+    @Scheduled(fixedRateString = "9000000")
     public void send() throws ExecutionException, InterruptedException {
 
         ListenableFuture<SendResult<String, String>> listenableFuture = this.producer.sendMessage("INPUT_DATA", "IN_KEY", LocalDate.now().toString());

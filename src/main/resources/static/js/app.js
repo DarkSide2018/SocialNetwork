@@ -40,7 +40,7 @@ function sendName() {
     sendToChuck()
 }
 function sendToChuck() {
-    stompClient.send("/app/chuck", {}, JSON.stringify({'name': $("#name").val()}));
+    stompClient.send("/app/chuck");
 }
 
 function showGreeting(message) {
