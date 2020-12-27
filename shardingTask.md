@@ -12,6 +12,7 @@
 Local launch:
 
 sh ./start-async-homework.sh
+реализация чата будет доступна по адресу http://localhost:8080/chat
 
 Когда окружение работает можно зайти на мастер и на слейв
  (Master)
