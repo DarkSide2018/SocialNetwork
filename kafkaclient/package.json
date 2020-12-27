@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "kafka-client": "^3.0.0",
+    "kafkajs": "^1.15.0"
+  }
+}

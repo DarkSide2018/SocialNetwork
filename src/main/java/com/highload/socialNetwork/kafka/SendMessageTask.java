@@ -18,10 +18,10 @@ public class SendMessageTask {
         this.producer = producer;
     }
 
-    @Scheduled(fixedRateString = "9000000")
+    @Scheduled(fixedRateString = "3000")
     public void send() throws ExecutionException, InterruptedException {
 
-        ListenableFuture<SendResult<String, String>> listenableFuture = this.producer.sendMessage("INPUT_DATA", "IN_KEY", LocalDate.now().toString());
+        ListenableFuture<SendResult<String, String>> listenableFuture = this.producer.sendMessage("INPUT_DATA", "IN_KEY", "start of Epoch Great THINGS The Big One"+LocalDate.now().toString());
 
         SendResult<String, String> result = listenableFuture.get();
         System.out.println(String.format("Produced:\ntopic: %s\noffset: %d\npartition: %d\nvalue size: %d", result.getRecordMetadata().topic(),
