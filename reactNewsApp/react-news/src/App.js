@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import NewsList from './news/NewsList.js'
 
 
 function App() {
@@ -16,7 +16,10 @@ function App() {
             <button onClick={() => handleClick()} type="button" className='btn'>How it Works</button>
 
 
+
+        <NewsList/>
     </div>
+
   );
 
 }
