@@ -9,15 +9,6 @@ const producer = kafka.producer()
 const consumer = kafka.consumer({ groupId: 'test-group' })
 
 const run = async () => {
-    // Producing
-    await producer.connect()
-    await producer.send({
-        topic: 'INPUT_DATA',
-        messages: [
-        //    { value: 'Hello KafkaJS user!' },
-        ],
-    })
-
     // Consuming
     await consumer.connect()
     await consumer.subscribe({ topic: 'INPUT_DATA', fromBeginning: true })
