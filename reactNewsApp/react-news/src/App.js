@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import NewsList from './news/NewsList.js'
+import IncrementComponent from "./news/IncrementComponent";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
 
         <NewsList/>
+        <IncrementComponent/>
     </div>
 
   );
