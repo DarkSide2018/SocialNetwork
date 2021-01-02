@@ -13,9 +13,4 @@ public class NewsMessage {
         private String from;
         private String to;
         private String content;
-
-        public NewsMessage(String s, String value) {
-                this.message = s;
-                this.content = value;
-        }
 }

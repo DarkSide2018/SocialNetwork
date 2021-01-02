@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NewsList from './news/NewsList.js'
 import IncrementComponent from "./news/IncrementComponent";
+import {Dashboard} from "./news/Dashboard";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
         <NewsList/>
         <IncrementComponent/>
+        <Dashboard/>
     </div>
 
   );
