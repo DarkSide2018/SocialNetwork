@@ -5,32 +5,34 @@ import ReactSpeedometer from "react-d3-speedometer"
 export const Dashboard = () => {
 
     const [listening, setListening] = useState(false);
+    const [listeningTopic, setListeningTopic] = useState(false);
     const [cpuUsage, setcpuUsage] = useState(0);
     const [memoryUsage, setmemoryUsage] = useState(0);
+    const [valueFromTopic, setValueFromTopic] = useState("0");
 
     let eventSource = undefined;
-
+    let eventSourceTopic = undefined;
 
     useEffect(() => {
-        if (!listening) {
-            eventSource = new EventSource("http://localhost:8080/event/resources/usage");
-            eventSource.onmessage = (event) => {
-                const usage = JSON.parse(event.data);
-                setcpuUsage(usage.cpuUsage)
-                setmemoryUsage(usage.memoryUsage)
+        if (!listeningTopic) {
+            eventSourceTopic = new EventSource("http://localhost:8080/event/news");
+            eventSourceTopic.onmessage = (event) => {
+                const news = JSON.parse(event.data);
+                setValueFromTopic(news.content)
             }
-            eventSource.onerror = (err) => {
+            eventSourceTopic.onerror = (err) => {
                 console.error("EventSource failed:", err);
                 eventSource.close();
             }
-            setListening(true)
+            setListeningTopic(true)
         }
         return () => {
-            eventSource.close();
+            eventSourceTopic.close();
             console.log("event closed")
         }
 
     }, [])
+
 
     return (
         <div style={{ "marginTop": "20px", "textAlign": "center" }}>
@@ -60,7 +62,10 @@ export const Dashboard = () => {
                     />
                 </div>
             </div>
-
+            <div>
+                {valueFromTopic}
+            </div>
         </div>
+
     )
 }
