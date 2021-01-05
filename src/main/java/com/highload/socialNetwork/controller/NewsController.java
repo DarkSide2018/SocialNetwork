@@ -46,8 +46,8 @@ public class NewsController {
                         "test",
                 "random.nextInt(101)",
                 "random.nextInt(101)",
-                it.value(),
-                new Date().toString()))
+                new Date().toString(),
+                        it.value()))
                 .checkpoint("Messages are done consumed");
 
     }

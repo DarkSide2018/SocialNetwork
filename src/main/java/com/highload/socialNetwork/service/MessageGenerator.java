@@ -30,7 +30,6 @@ public class MessageGenerator {
         ChatMessage chatMessage = null;
         if (runDialog) {
             int anInt = random.nextInt(4);
-
             if (anInt == 3) {
                 chatMessage = ChatMessage.builder()
                         .senderId(2L)

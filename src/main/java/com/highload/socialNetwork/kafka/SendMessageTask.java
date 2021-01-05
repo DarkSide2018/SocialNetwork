@@ -1,5 +1,7 @@
 package com.highload.socialNetwork.kafka;
 
+import com.github.javafaker.Faker;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -11,17 +13,17 @@ import java.util.concurrent.ExecutionException;
 @Component
 public class SendMessageTask {
 
+    @Autowired
+    private Producer producer;
 
-    private final Producer producer;
-
-    public SendMessageTask(Producer producer) {
-        this.producer = producer;
-    }
+    @Autowired
+    private Faker faker;
 
     @Scheduled(fixedRateString = "3000")
     public void send() throws ExecutionException, InterruptedException {
+        String quote = faker.friends().quote();
 
-        ListenableFuture<SendResult<String, String>> listenableFuture = this.producer.sendMessage("INPUT_DATA", "IN_KEY", "start of Epoch Great THINGS The Big One"+LocalDate.now().toString());
+        ListenableFuture<SendResult<String, String>> listenableFuture = this.producer.sendMessage("INPUT_DATA", "IN_KEY", quote);
 
         SendResult<String, String> result = listenableFuture.get();
         System.out.println(String.format("Produced:\ntopic: %s\noffset: %d\npartition: %d\nvalue size: %d", result.getRecordMetadata().topic(),

@@ -3,7 +3,6 @@ package com.highload.socialNetwork.controller;
 import com.highload.socialNetwork.model.Client;
 import com.highload.socialNetwork.model.User;
 import com.highload.socialNetwork.service.ClientService;
-import com.highload.socialNetwork.service.SecurityService;
 import com.highload.socialNetwork.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
