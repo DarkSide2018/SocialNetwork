@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 
-
+let valueFromTopicArray = []
 export const Dashboard = () => {
 
     const [listeningTopic, setListeningTopic] = useState(false);
-    const [valueFromTopic, setValueFromTopic] = useState("0");
+    const [valueFromTopic, setValueFromTopic] = useState(["gf"]);
 
     let eventSourceTopic = undefined;
 
@@ -13,7 +13,7 @@ export const Dashboard = () => {
             eventSourceTopic = new EventSource("http://localhost:8080/event/news");
             eventSourceTopic.onmessage = (event) => {
                 const news = JSON.parse(event.data);
-                setValueFromTopic(news.content)
+                setValueFromTopic((valueFromTopic) => valueFromTopic.concat(news.content))
             }
             eventSourceTopic.onerror = (err) => {
                 console.error("EventSource failed:", err);
@@ -21,6 +21,7 @@ export const Dashboard = () => {
             }
             setListeningTopic(true)
         }
+
         return () => {
             eventSourceTopic.close();
             console.log("event closed")
@@ -28,18 +29,25 @@ export const Dashboard = () => {
 
     }, [])
 
-
     return (
-        <div style={{ "marginTop": "20px", "textAlign": "center" }}>
+        <div style={{"marginTop": "20px", "textAlign": "center"}}>
             <h1>Dashboard</h1>
             <div>
-                {valueFromTopic}
+                <ol>
+                    {
+                        Array.from(valueFromTopic).map(el=>{
+                            return <li value={el} key={uuidv4()} >{el}</li>
+                        })
+                    }
+                </ol>
+
             </div>
         </div>
     )
 }
+
 function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
     });
