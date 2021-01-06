@@ -15,17 +15,11 @@ public class NewsRepository {
     private  DbConnectionProvider provider;
 
     public void save(NewsMessage newsMessage) {
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO chat_message (chat_id,sender_id,recipient_id,sender_name,recipient_name,content,status,`timestamp`) VALUES (?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);) {
-//            int i = 1;
-//            preparedStatement.setString(i++, chatMessage.getChatId());
-//            preparedStatement.setLong(i++, chatMessage.getSenderId());
-//            preparedStatement.setLong(i++, chatMessage.getRecipientId());
-//            preparedStatement.setString(i++, chatMessage.getSenderName());
-//            preparedStatement.setString(i++, chatMessage.getRecipientName());
-//            preparedStatement.setString(i++, chatMessage.getContent());
-//            preparedStatement.setString(i++, MessageStatus.DELIVERED.toString());
-//            preparedStatement.setDate(i, chatMessage.getTimestamp());
-//            preparedStatement.execute();
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("INSERT INTO news (content,`timestamp`) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);) {
+            int i = 1;
+            preparedStatement.setString(i++, newsMessage.getContent());
+            preparedStatement.setObject(i, newsMessage.getCreatedAt());
+            preparedStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

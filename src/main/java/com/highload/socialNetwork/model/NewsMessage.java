@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
@@ -13,4 +16,7 @@ public class NewsMessage {
         private String from;
         private String to;
         private String content;
+        private LocalDateTime createdAt;
+
+
 }

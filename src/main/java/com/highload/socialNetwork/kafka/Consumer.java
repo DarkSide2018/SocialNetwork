@@ -22,7 +22,7 @@ public class Consumer {
                         final @Header(KafkaHeaders.RECEIVED_TIMESTAMP) long ts,
                         final Acknowledgment acknowledgment
     ) {
-        System.out.println(String.format("#### -> Consumed message -> TIMESTAMP: %d\n%s\noffset: %d\nkey: %s\npartition: %d\ntopic: %s", ts, message, offset, key, partition, topic));
+        System.out.println("message - > " + message);
         acknowledgment.acknowledge();
     }
 }

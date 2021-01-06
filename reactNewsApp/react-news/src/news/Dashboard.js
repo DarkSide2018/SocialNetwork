@@ -6,7 +6,6 @@ export const Dashboard = () => {
     const [listeningTopic, setListeningTopic] = useState(false);
     const [valueFromTopic, setValueFromTopic] = useState("0");
 
-    let eventSource = undefined;
     let eventSourceTopic = undefined;
 
     useEffect(() => {
@@ -18,7 +17,7 @@ export const Dashboard = () => {
             }
             eventSourceTopic.onerror = (err) => {
                 console.error("EventSource failed:", err);
-                eventSource.close();
+                eventSourceTopic.close();
             }
             setListeningTopic(true)
         }
@@ -37,6 +36,11 @@ export const Dashboard = () => {
                 {valueFromTopic}
             </div>
         </div>
-
     )
+}
+function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
 }

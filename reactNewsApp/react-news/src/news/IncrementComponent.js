@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 export default class IncrementComponent extends Component{
     constructor(props) {
         super(props);
@@ -12,17 +11,12 @@ export default class IncrementComponent extends Component{
         this.decrement = this.decrement.bind(this)
         this.reset = this.reset.bind(this)
     }
-    componentDidMount() {
-
-    }
 
     increment(){
         this.state.messages.push("MSG")
         this.setState(state => (
             {
                 count: state.count + 1,
-
-
             }
         ))
     }
