@@ -1,9 +1,13 @@
 version: '3.1'
 
 services:
+
   kafka:
+    domainname: kafka
     container_name: kafka
     image: wurstmeister/kafka
+    networks:
+      - springboot-proxysql-mysql
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ADVERTISED_PORT: 9092
@@ -16,6 +20,8 @@ services:
     container_name: zookeeper
     image: wurstmeister/zookeeper
     restart: always
+    networks:
+      - springboot-proxysql-mysql
     ports:
       - 2181:2181
       - 2888:2888
@@ -23,4 +29,3 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper:2888:3888
-

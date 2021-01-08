@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react'
 
-let valueFromTopicArray = []
 export const Dashboard = () => {
 
     const [listeningTopic, setListeningTopic] = useState(false);
-    const [valueFromTopic, setValueFromTopic] = useState(["gf"]);
+    const [valueFromTopic, setValueFromTopic] = useState([]);
 
     let eventSourceTopic = undefined;
 
@@ -28,14 +27,36 @@ export const Dashboard = () => {
         }
 
     }, [])
+    let from = Array.from(valueFromTopic);
+    if(from.length>4){
+        valueFromTopic.splice(0,1)
+    }else if(from.length === 0){
+        fetch("http://localhost:8080/event/last/news")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    result.forEach((el)=>{
+                        setValueFromTopic((valueFromTopic) => valueFromTopic.concat(el.content))
+                    })
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
 
     return (
         <div style={{"marginTop": "20px", "textAlign": "center"}}>
+            {
+            }
             <h1>Dashboard</h1>
             <div>
                 <ol>
                     {
-                        Array.from(valueFromTopic).map(el=>{
+                        from.map(el=>{
                             return <li value={el} key={uuidv4()} >{el}</li>
                         })
                     }

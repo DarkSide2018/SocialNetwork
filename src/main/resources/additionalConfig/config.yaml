@@ -1,9 +1,9 @@
 example:
   kafka:
     consumer-enabled: ${consumer-enabled:true}
+
 spring:
   kafka:
-    bootstrap-servers: ${kafka_bootstrap_servers:localhost:9092}
     consumer:
       auto-offset-reset: earliest
       group-id: example

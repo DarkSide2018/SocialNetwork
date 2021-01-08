@@ -1,4 +1,4 @@
-
+import React from 'react'
 import './App.css';
 import NewsList from './news/NewsList.js'
 import IncrementComponent from "./news/IncrementComponent";
@@ -16,10 +16,10 @@ function App() {
     return (
     <div className="App">
 
-            <button onClick={() => handleClick()} type="button" className='btn'>How it Works</button>
+        {/*    <button onClick={() => handleClick()} type="button" className='btn'>How it Works</button>*/}
 
-        <NewsList/>
-        <IncrementComponent/>
+        {/*<NewsList/>*/}
+        {/*<IncrementComponent/>*/}
         <Dashboard/>
     </div>
 
