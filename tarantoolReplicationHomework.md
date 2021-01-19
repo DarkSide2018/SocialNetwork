@@ -14,6 +14,8 @@
  
  cd mysql-tarantool-replication
  git submodule update --init --recursive
+ yum install cmake
+ 
  cmake .
  make
  
