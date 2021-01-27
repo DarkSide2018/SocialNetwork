@@ -81,7 +81,7 @@ public class UserRepository {
     }
 
     public void deleteById(Integer id) {
-        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("DELETE FROM `user` u WHERE u.id = ? ");) {
+        try (PreparedStatement preparedStatement = provider.getConnection().prepareStatement("DELETE FROM `user`  WHERE id = ?");) {
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException throwables) {

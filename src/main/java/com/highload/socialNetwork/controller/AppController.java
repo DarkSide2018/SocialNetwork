@@ -15,11 +15,9 @@ import java.util.List;
 @Controller
 public class AppController {
     private final ClientService service;
-    private final UserService userService;
 
-    public AppController(ClientService service, UserService userService) {
+    public AppController(ClientService service) {
         this.service = service;
-        this.userService = userService;
     }
 
     @ModelAttribute("clientForm")
@@ -30,9 +28,7 @@ public class AppController {
     @GetMapping({"/"})
     public String signup(Model model) {
         List<Client> all = service.getAll(1, 10);
-        List<User> userServiceAll = userService.getAll();
         model.addAttribute("clients", all);
-        model.addAttribute("users", userServiceAll);
         return "index";
     }
 
@@ -51,8 +47,5 @@ public class AppController {
         return "login";
     }
 
-    @GetMapping("/chat")
-    public String chatting() {
-        return "chat";
-    }
+
 }

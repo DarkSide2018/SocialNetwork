@@ -2,15 +2,11 @@ package com.highload.socialNetwork.service;
 
 import com.github.javafaker.Faker;
 import com.highload.socialNetwork.model.ChatMessage;
-import com.highload.socialNetwork.model.MessageStatus;
-import com.highload.socialNetwork.repos.ChatMessageRepository;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.sql.Date;
 import java.util.Random;
 

@@ -44,4 +44,10 @@ public class UserController {
         model.addAttribute("user", userService.getByUserId(id));
         return "registration";
     }
+
+    @GetMapping("/get-all-users")
+    public String getAll(Model model) {
+        model.addAttribute("users", userService.getAll());
+        return "usersList";
+    }
 }
