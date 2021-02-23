@@ -28,8 +28,7 @@ export const Dashboard = () => {
     if(from.length>4){
         valueFromTopic.splice(0,1)
     }else if(from.length === 0){
-        fetch("http://localhost:8080/event/last/news")
-            .then(res => res.json())
+        fetch("http://localhost:8080/event/last/news").then(res => res.json())
             .then(
                 (result) => {
                     result.forEach((el)=>{

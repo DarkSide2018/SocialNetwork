@@ -16,6 +16,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@CrossOrigin(value = { "http://localhost:3000","http://localhost:8080" },
+        allowedHeaders = { "*" },
+        maxAge = 900
+)
 public class NewsController {
 
     @Autowired
