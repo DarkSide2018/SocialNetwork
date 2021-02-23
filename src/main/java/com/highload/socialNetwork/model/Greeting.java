@@ -1,4 +1,4 @@
-package com.highload.socialNetwork.springSocket;
+package com.highload.socialNetwork.model;
 
 public class Greeting {
     private String content;

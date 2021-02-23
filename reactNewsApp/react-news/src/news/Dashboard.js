@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react'
 
 export const Dashboard = () => {
-
+    let eventSourceTopic = undefined;
     const [listeningTopic, setListeningTopic] = useState(false);
     const [valueFromTopic, setValueFromTopic] = useState([]);
-
-    let eventSourceTopic = undefined;
-
     useEffect(() => {
         if (!listeningTopic) {
             eventSourceTopic = new EventSource("http://localhost:8080/event/news");
@@ -38,12 +35,6 @@ export const Dashboard = () => {
                     result.forEach((el)=>{
                         setValueFromTopic((valueFromTopic) => valueFromTopic.concat(el.content))
                     })
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
                 }
             )
     }

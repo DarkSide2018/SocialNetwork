@@ -1,7 +1,7 @@
 package com.highload.socialNetwork.controller;
 
 import com.highload.socialNetwork.service.MessageGenerator;
-import com.highload.socialNetwork.springSocket.Greeting;
+import com.highload.socialNetwork.model.Greeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
