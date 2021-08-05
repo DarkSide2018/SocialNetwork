@@ -1,0 +1,18 @@
+{
+  "info": {
+    "version": "1.0",
+    "uuid": "c2c1e991-c56e-4f5d-b87a-2d6d4bbb8395",
+    "started_at": "2021-07-29T14:04:51.086+03:00"
+  },
+  "data": {
+    "type": "new-tender-report",
+    "email": "s.trefilov@stlc.spb.ru",
+    "firstname": "Сергей",
+    "patronymic": "Сергеевич",
+    "reportUrl": "https://go.gruzi.ru/download-from-storage/8c9d3ba0-fa39-4c8b-bda5-91a3ea83376f",
+    "title": "RFQ21 6644 Все лоты",
+    "channels": [
+      "EMAIL"
+    ]
+  }
+}
